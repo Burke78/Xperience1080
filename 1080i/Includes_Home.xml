@@ -1,12 +1,12 @@
 <includes>
-	<!--test-->
+
     <!--Home shutdown-favs Buttons-->
     <include name="shutdown-favs">
         <control type="group" id="80">
             <description>Home Buttons</description>
             <control type="button" id="21">
                 <description>Shutdown Button</description>
-                <posx>72</posx>
+                <posx>50</posx>
                 <posy>950</posy>
                 <width>100</width>
                 <height>100</height>
@@ -28,7 +28,7 @@
                 <ondown condition="Container(20).HasFocus(7)">725</ondown>
                 <ondown condition="Container(20).HasFocus(8)">825</ondown>
                 <ondown condition="Container(20).HasFocus(9)">925</ondown>
-                <onleft>22</onleft>
+                <onleft>23</onleft>
                 <onright>22</onright>
                 <texturefocus>buttons/shutdown_fo.png</texturefocus>
                 <texturenofocus>buttons/shutdown_nofo.png</texturenofocus>
@@ -37,7 +37,7 @@
                 <include>homebuttonsanim</include>
                 <visible allowhiddenfocus="true">true</visible>
             </control>
-            <control type="label">
+            <!-- <control type="label">
                 <description>Shutdown Label</description>
                 <posx>157</posx>
                 <posy>950</posy>
@@ -49,10 +49,10 @@
                 <shadowcolor>22000000</shadowcolor>
                 <include>Animation_ShutdownButton</include>
                 <include>homebuttonsanim2</include>
-            </control>
+            </control> -->
             <control type="button" id="22">
                 <description>Favourites Button</description>
-                <posx>277</posx>
+                <posx>115</posx>
                 <posy>950</posy>
                 <width>100</width>
                 <height>100</height>
@@ -75,9 +75,9 @@
                 <ondown condition="Container(20).HasFocus(8)">825</ondown>
                 <ondown condition="Container(20).HasFocus(9)">925</ondown>
                 <onleft>21</onleft>
-                <onright>21</onright>
-                <texturefocus>buttons/favourites_fo.png</texturefocus>
-                <texturenofocus>buttons/favourites_nofo.png</texturenofocus>
+                <onright>23</onright>
+                <texturefocus>buttons/options_fo.png</texturefocus>
+                <texturenofocus>buttons/options_nofo.png</texturenofocus>
                 <onclick>CancelAlarm(HomeTileMove,true)</onclick>
                 <onclick>CancelAlarm(HomeTileMoveTwo,true)</onclick>
                 <onclick>CancelAlarm(HomeTileMoveThree,true)</onclick>
@@ -86,7 +86,7 @@
                 <include>homebuttonsanim3</include>
                 <visible allowhiddenfocus="true">!Window.IsVisible(favourites) + !Window.IsVisible(script-globalsearch-main.xml) + !Window.IsVisible(script-globalsearch-infodialog.xml) + !Window.IsVisible(script-globalsearch-contextmenu.xml) + !Window.IsVisible(virtualkeyboard) + IsEmpty(Window.Property(HomeSearch)) + !Window.IsVisible(playercontrols)</visible>
             </control>
-            <control type="label">
+            <!-- <control type="label">
                 <description>Favourites Label</description>
                 <posx>362</posx>
                 <posy>950</posy>
@@ -99,6 +99,42 @@
                 <include>Animation_FavButton</include>
                 <include>homebuttonsanim4</include>
                 <visible>!Window.IsVisible(favourites) + !Window.IsVisible(script-globalsearch-main.xml) + !Window.IsVisible(script-globalsearch-infodialog.xml) + !Window.IsVisible(script-globalsearch-contextmenu.xml) + !Window.IsVisible(virtualkeyboard) + IsEmpty(Window.Property(HomeSearch)) + !Window.IsVisible(playercontrols)</visible>
+            </control> -->
+            <control type="button" id="23">
+                <description>Settings Button</description>
+                <posx>180</posx>
+                <posy>950</posy>
+                <width>100</width>
+                <height>100</height>
+                <onup condition="Container(20).HasFocus(1)">101</onup>
+                <onup condition="Container(20).HasFocus(2)">501</onup>
+                <onup condition="Container(20).HasFocus(3)">201</onup>
+                <onup condition="Container(20).HasFocus(4)">301</onup>
+                <onup condition="Container(20).HasFocus(5)">401</onup>
+                <onup condition="Container(20).HasFocus(6)">601</onup>
+                <onup condition="Container(20).HasFocus(7)">701</onup>
+                <onup condition="Container(20).HasFocus(8)">801</onup>
+                <onup condition="Container(20).HasFocus(9)">901</onup>
+                <ondown condition="Container(20).HasFocus(1)">125</ondown>
+                <ondown condition="Container(20).HasFocus(2)">525</ondown>
+                <ondown condition="Container(20).HasFocus(3)">225</ondown>
+                <ondown condition="Container(20).HasFocus(4)">325</ondown>
+                <ondown condition="Container(20).HasFocus(5)">425</ondown>
+                <ondown condition="Container(20).HasFocus(6)">625</ondown>
+                <ondown condition="Container(20).HasFocus(7)">725</ondown>
+                <ondown condition="Container(20).HasFocus(8)">825</ondown>
+                <ondown condition="Container(20).HasFocus(9)">925</ondown>
+                <onleft>22</onleft>
+                <onright>21</onright>
+                <texturefocus>buttons/favourites_fo.png</texturefocus>
+                <texturenofocus>buttons/favourites_nofo.png</texturenofocus>
+                <onclick>CancelAlarm(HomeTileMove,true)</onclick>
+                <onclick>CancelAlarm(HomeTileMoveTwo,true)</onclick>
+                <onclick>CancelAlarm(HomeTileMoveThree,true)</onclick>
+                <onclick>ActivateWindow(Settings)</onclick>
+                <include>Animation_FavButton</include>
+                <include>homebuttonsanim3</include>
+                <visible allowhiddenfocus="true">!Window.IsVisible(favourites) + !Window.IsVisible(script-globalsearch-main.xml) + !Window.IsVisible(script-globalsearch-infodialog.xml) + !Window.IsVisible(script-globalsearch-contextmenu.xml) + !Window.IsVisible(virtualkeyboard) + IsEmpty(Window.Property(HomeSearch)) + !Window.IsVisible(playercontrols)</visible>
             </control>
         </control>
     </include>
