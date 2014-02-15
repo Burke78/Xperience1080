@@ -1,5 +1,5 @@
 <includes>
-
+	<!--test-->
     <!--Home shutdown-favs Buttons-->
     <include name="shutdown-favs">
         <control type="group" id="80">
@@ -566,7 +566,7 @@
             </content>
         </control>
     </include>
-    
+    <!--### Home items -->
     <include name="HomeItems">
         <control type="grouplist" id="40">
             <posx>-200</posx>
@@ -725,6 +725,7 @@
                     </control>
                 </control>
             </control>
+			<!--### Live TV -->
             <control type="group" id="900">
                 <width>2320</width>
                 <height>780</height>
@@ -949,6 +950,7 @@
                     </control>
                 </control>
             </control>
+			<!--### Home -->
             <control type="group" id="500">
                 <description>Home</description>
                 <width>2320</width>
@@ -1593,6 +1595,7 @@
                     </control>
                 </control>
             </control>
+			<!--### Movies -->
             <control type="group" id="200">
                 <width>2320</width>
                 <height>780</height>
@@ -2308,6 +2311,7 @@
                     </control>
                 </control>
             </control>
+			<!--### TV shows -->
             <control type="group" id="300">
                 <width>2320</width>
                 <height>780</height>
@@ -2975,6 +2979,7 @@
                     </control>
                 </control>
             </control>
+			<!--### Music -->
             <control type="group" id="400">
                 <width>2320</width>
                 <height>780</height>
@@ -3640,6 +3645,7 @@
                     </control>
                 </control>
             </control>
+			<!--### Apps -->
             <control type="group" id="600">
                 <width>2320</width>
                 <height>780</height>
@@ -4061,6 +4067,7 @@
                     </control>
                 </control>
             </control>
+			<!--### Weather -->
             <control type="group" id="700">
                 <width>2320</width>
                 <height>780</height>
@@ -4890,6 +4897,7 @@
                     </control>
                 </control>
             </control>
+			<!--### Settings -->
             <control type="group" id="800">
                 <width>2320</width>
                 <height>780</height>
