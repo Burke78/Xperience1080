@@ -1236,7 +1236,7 @@
                             <enable>false</enable>
                             <visible>Control.IsVisible(5022)</visible>
                             <include>visiblehidefadeinfodelayvisible</include>
-                        </control>
+                        </control>-->
                         <control type="label">
                             <posx>0</posx>
                             <posy>576</posy>
@@ -1251,6 +1251,7 @@
                             <label>[UPPERCASE]$VAR[SpotlightLabelVAR][/UPPERCASE]</label>
                             <animation effect="slide" end="0,6" time="100" tween="sine" easing="out" condition="ControlGroup(502).HasFocus">Conditional</animation>
                         </control>
+						<!--
                         <control type="group">
                             <animation effect="slide" end="0,6" time="100" tween="sine" easing="out" condition="ControlGroup(502).HasFocus">Conditional</animation>
                             <visible>Control.IsVisible(5022)</visible>
@@ -4205,6 +4206,7 @@
                     <onright>CancelAlarm(HomeTileMoveThree,true)</onright>
                     <onright>Control.Move(20,1)</onright>
                     <onright>825</onright> -->
+					<onright condition="!Window.IsVisible(3009)">SetProperty(BounceRight,1,Home)</onright>
                     <onclick condition="!IsEmpty(Weather.Plugin)">ActivateWindow(weather)</onclick>
                     <onclick condition="IsEmpty(Weather.Plugin)">ActivateWindow(weathersettings)</onclick>
                     <onup>80</onup>
@@ -4885,8 +4887,9 @@
                         <onleft condition="Skin.HasSetting(HomePrograms) + Skin.HasSetting(HomeMusic) + !Skin.HasSetting(HomeTVShows)">303</onleft>
                         <onleft condition="Skin.HasSetting(HomePrograms) + Skin.HasSetting(HomeMusic) + Skin.HasSetting(HomeTVShows) + !Skin.HasSetting(HomeMovies)">203</onleft>
                         <onleft condition="Skin.HasSetting(HomePrograms) + Skin.HasSetting(HomeMusic) + Skin.HasSetting(HomeTVShows) + Skin.HasSetting(HomeMovies)">503</onleft>
-                        <onright>Control.Move(20,1)</onright>
-                        <onright>801</onright>
+                        <!--<onright>Control.Move(20,1)</onright>
+                        <onright>801</onright>-->
+						<onright condition="!Window.IsVisible(3009)">SetProperty(BounceRight,1,Home)</onright>
                         <onup>725</onup>
                         <ondown>80</ondown>
                         <scrolltime>0</scrolltime>
