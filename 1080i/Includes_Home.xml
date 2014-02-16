@@ -1,6 +1,6 @@
 <includes>
 
-    <!--Home shutdown-favs Buttons -->
+    <!--Home shutdown/favs Buttons-->
     <include name="shutdown-favs">
         <control type="group" id="80">
             <description>Home Buttons</description>
@@ -1022,7 +1022,7 @@
                 </control>
                 <control type="group" id="550">
                     <posy>100</posy>
-                    <posx>535</posx>
+                    <posx>626</posx>
                     <animation type="WindowOpen" condition="[Container(20).HasFocus(1) + !System.GetBool(pvrmanager.enabled)] | [Container(20).HasFocus(9) + System.GetBool(pvrmanager.enabled)]" reversible="true">
                         <effect type="slide" start="1500" end="0" tween="cubic" easing="out" time="700" /> 
                         <effect type="fade" start="25" end="100" tween="sine" easing="in" time="350" delay="250" />
@@ -1073,6 +1073,8 @@
                         <height>150</height>
                         <texture>windows/home/item-shadow.png</texture>
                     </control>
+					<!-- Spotlight -->
+					
                     <control type="group" id="502">
                         <description>Spotlight (random items)</description>
                         <posx>289</posx>
@@ -1090,12 +1092,42 @@
                             <onleft>AlarmClock(HomeTileMoveTwo,Control.Move(5022,1),00:07,silent,loop)</onleft>
                             <onleft>501</onleft>
                             <onright>AlarmClock(HomeTileMoveTwo,Control.Move(5022,1),00:07,silent,loop)</onright>
-                            <onright>503</onright>
-                            <onclick condition="System.HasAddon(service.skin.widgets)">$INFO[Container(5022).ListItem.Property(Play)]</onclick>
+                            <!-- <onright>503</onright>-->
+                            <onright>CancelAlarm(HomeTileMoveTwo,true)</onright>
+                            <onright condition="!Skin.HasSetting(HomeMovies)">AlarmClock(HomeTileMove,Control.Move(2022,1),00:07,silent,loop)</onright>
+                            <onright condition="Skin.HasSetting(HomeMovies) + !Skin.HasSetting(HomeTVShows)">AlarmClock(HomeTileMove,Control.Move(3022,1),00:07,silent,loop)</onright>
+                            <onright condition="Skin.HasSetting(HomeMovies) + Skin.HasSetting(HomeTVShows) + !Skin.HasSetting(HomeMusic)">AlarmClock(HomeTileMove,Control.Move(4022,1),00:07,silent,loop)</onright>
+                            <onright condition="!Skin.HasSetting(HomeMovies)">201</onright>
+                            <onright condition="Skin.HasSetting(HomeMovies) + !Skin.HasSetting(HomeTVShows)">301</onright>
+                            <onright condition="Skin.HasSetting(HomeMovies) + Skin.HasSetting(HomeTVShows) + !Skin.HasSetting(HomeMusic)">401</onright>
+                            <onright condition="Skin.HasSetting(HomeMovies) + Skin.HasSetting(HomeTVShows) + Skin.HasSetting(HomeMusic) + !Skin.HasSetting(HomePrograms)">601</onright>
+                            <onright condition="Skin.HasSetting(HomeMovies) + Skin.HasSetting(HomeTVShows) + Skin.HasSetting(HomeMusic) + Skin.HasSetting(HomePrograms)">701</onright>
+                            <onright>Control.Move(20,1)</onright>
+                            <onclick condition="!Skin.HasSetting(Picturesdir)">ActivateWindow(Pictures)</onclick>
                             <onback condition="!Skin.HasSetting(KioskMode)">SetProperty(SingleDialog,widget1,3003)</onback>
                             <onback condition="!Skin.HasSetting(KioskMode)">SetProperty(Dialog,$LOCALIZE[41168],skinsettings)</onback>
                             <onback condition="!Skin.HasSetting(KioskMode)">ActivateWindow(3003)</onback>
                         </control>
+						<control type="group"> 
+
+						<control type="multiimage">
+							<posx>0</posx>
+							<posy>0</posy>
+							<width>772</width>
+							<height>570</height>
+							<timeperimage>10000</timeperimage>
+							<randomize>true</randomize>
+							<fadetime>600</fadetime>
+							<loop>yes</loop>
+							<animation effect="fade" start="0" end="100" time="0">Visible</animation>
+							<animation effect="fade" start="100" delay="500" end="0" time="10">Hidden</animation>
+							<aspectratio>scale</aspectratio>
+							<imagepath background="true" fallback="pictures.png">$INFO[Skin.String(PicturesDir)]</imagepath>
+						</control>
+						<!--reflect-->
+						</control>
+
+						<!--
                         <control type="image">
                             <posx>-5</posx>
                             <posy>-5</posy>
@@ -1103,6 +1135,7 @@
                             <height>582</height>
                             <texture border="7">windows/home/tile.png</texture>
                         </control>
+
                         <control type="wraplist" id="5022">
                             <posx>0</posx>
                             <posy>0</posy>
@@ -1117,24 +1150,26 @@
                             <pagecontrol>5024</pagecontrol>
                             <visible allowhiddenfocus="true">IntegerGreaterThan(Container(5022).NumItems,0)</visible>
                             <include>visiblehidefadeinfodelayvisible</include>
+
+							<!--
                             <itemlayout width="572" height="501">
-                                <control type="image">
+                                <control type="multiimage">
                                     <posx>0</posx>
                                     <posy>0</posy>
                                     <width>572</width>
                                     <height>572</height>
                                     <aspectratio>scale</aspectratio>
-                                    <texture background="true">$INFO[ListItem.Icon]</texture>
+                                    <texture background="true">$INFO[Skin.String(PicturesDir)]</texture>
                                 </control>
                             </itemlayout>
                             <focusedlayout width="572" height="501">
-                                <control type="image">
+                                <control type="multiimage">
                                     <posx>0</posx>
                                     <posy>0</posy>
                                     <width>572</width>
                                     <height>572</height>
                                     <aspectratio>scale</aspectratio>
-                                    <texture background="true">$INFO[ListItem.Icon]</texture>
+                                    <texture background="true">$INFO[Skin.String(PicturesDir)]</texture>
                                 </control>
                             </focusedlayout>
                             <content>
@@ -1149,7 +1184,8 @@
                             <height>64</height>
                             <colordiffuse>99000000</colordiffuse>
                             <texture border="1">windows/common/black.png</texture>
-                        </control>
+                       </control>
+					   <!--
                         <control type="group" id="5023">
                             <visible>!Control.IsVisible(5022) + [[stringcompare(Skin.String(HomeWidget.1.Type),service.skin.widgets) + IsEmpty(Window(Home).Property(SkinWidgets_Running))] | [stringcompare(Skin.String(HomeWidget.1.Type),script.randomandlastitems) + IsEmpty(Window(Home).Property(HomeWidget1.Loaded))] | [!stringcompare(Skin.String(HomeWidget.1.Type),service.skin.widgets) + !stringcompare(Skin.String(HomeWidget.1.Type),script.randomandlastitems) + !IsEmpty(Window(Home).Property(extendedinfo_running))]]</visible>
                             <include>visiblehidefadeinfo</include>
@@ -1184,6 +1220,7 @@
                                 <scroll>false</scroll>
                             </control>
                         </control>
+						
                         <control type="button">
                             <description>Title label</description>
                             <posx>20</posx>
@@ -1248,9 +1285,10 @@
                             <visible>Window.IsActive(contextmenu) + Control.HasFocus(5021)</visible>
                             <animation effect="fade" time="300" start="0" end="95" tween="sine" easing="out">Visible</animation>
                             <animation effect="fade" time="300" start="95" end="0" tween="sine" easing="in">Hidden</animation>
-                        </control>
+                        </control>-->
                     </control>
-                    <control type="group" id="503">
+					<!-- END Spotlight -->
+                    <!--<control type="group" id="503">
                         <description>Ongoing tv shows</description>
                         <posx>867</posx>
                         <control type="button" id="5031">
@@ -1280,7 +1318,8 @@
                             <onback condition="!Skin.HasSetting(KioskMode)">SetProperty(Dialog,$LOCALIZE[41168],skinsettings)</onback>
                             <onback condition="!Skin.HasSetting(KioskMode)">ActivateWindow(3003)</onback>
                         </control>
-                        <control type="image">
+						
+                        <!--<control type="image">
                             <posx>-5</posx>
                             <posy>-5</posy>
                             <width>392</width>
@@ -1433,7 +1472,7 @@
                             <animation effect="fade" time="300" start="0" end="95" tween="sine" easing="out">Visible</animation>
                             <animation effect="fade" time="300" start="95" end="0" tween="sine" easing="in">Hidden</animation>
                         </control>
-                    </control>
+                    </control> -->
                     <control type="panel" id="501">
                         <posx>-24</posx>
                         <posy>-24</posy>
@@ -1919,7 +1958,8 @@
                         <onleft>CancelAlarm(HomeTileMove,true)</onleft>
                         <onleft>AlarmClock(HomeTileMoveTwo,Control.Move(5022,1),00:07,silent,loop)</onleft>
                         <onleft>Control.Move(20,-1)</onleft>
-                        <onleft>503</onleft>
+                        <!--<onleft>503</onleft>-->
+						<onleft>502</onleft>
                         <onright>202</onright>
                         <onup>225</onup>
                         <ondown>80</ondown>
