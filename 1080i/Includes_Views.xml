@@ -10,7 +10,7 @@
         <include>Viewtype-List</include>
         <include>Viewtype-InfoList</include>
         <include>Viewtype-Panel</include>
-        <include>Viewtype-Landscape</include>
+        <include>Viewtype-PanelCarousel</include>
         <include>Viewtype-Poster</include>
         <include>Viewtype-Thumbnail</include>
         <include>Viewtype-ThumbnailVideo</include>
