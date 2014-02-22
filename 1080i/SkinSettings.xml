@@ -402,6 +402,16 @@
                         <onclick>Skin.ToggleSetting(HideHomeSubmenuArrow)</onclick>
                         <label>$LOCALIZE[41135]</label>
                     </control>
+					<control type="button" id="2005">
+						<description>Set pictures path</description>
+						<label>Path to Pictures Slideshow</label>
+						<onclick>Skin.SetPath(PicturesDir)</onclick>
+						<width>1210</width>
+						<include condition="!Skin.HasSetting(DarkerPanels)">SettingsCategoryDefaultButtonVars</include>
+						<include condition="Skin.HasSetting(DarkerPanels)">SettingsCategoryDefaultButtonVarsDarkerBackground</include>
+						<onup>1013</onup>
+						<ondown>1001</ondown>
+					</control>
                     <control type="group" id="2007">
                         <description>Fake spin control</description>
                         <width>1210</width>
@@ -429,7 +439,7 @@
                             <height>60</height>
                             <onleft>20072</onleft>
                             <onright>20072</onright>
-                            <onup>2004</onup>
+                            <onup>2005</onup>
                             <ondown>4001</ondown>
                             <texturefocus>buttons/spinctrl/arrow-down-fo.png</texturefocus>
                             <texturenofocus>buttons/spinctrl/arrow-down-nf.png</texturenofocus>
