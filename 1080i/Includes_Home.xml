@@ -30,8 +30,8 @@
                 <ondown condition="Container(20).HasFocus(9)">925</ondown>
                 <onleft>23</onleft>
                 <onright>22</onright>
-                <texturefocus>buttons/shutdown_fo.png</texturefocus>
-                <texturenofocus>buttons/shutdown_nofo.png</texturenofocus>
+                <texturefocus>special://skin/extras/buttons/shutdown_fo.png</texturefocus>
+                <texturenofocus>special://skin/extras/buttons/shutdown_nofo.png</texturenofocus>
                 <onclick>ActivateWindow(ShutdownMenu)</onclick>
                 <include>Animation_ShutdownButton</include>
                 <include>homebuttonsanim</include>
@@ -76,8 +76,8 @@
                 <ondown condition="Container(20).HasFocus(9)">925</ondown>
                 <onleft>21</onleft>
                 <onright>23</onright>
-                <texturefocus>buttons/favourites_fo.png</texturefocus>
-                <texturenofocus>buttons/favourites_nofo.png</texturenofocus>
+                <texturefocus>special://skin/extras/buttons/favourites_fo.png</texturefocus>
+                <texturenofocus>special://skin/extras/buttons/favourites_nofo.png</texturenofocus>
                 <onclick>CancelAlarm(HomeTileMove,true)</onclick>
                 <onclick>CancelAlarm(HomeTileMoveTwo,true)</onclick>
                 <onclick>CancelAlarm(HomeTileMoveThree,true)</onclick>
@@ -126,8 +126,8 @@
                 <ondown condition="Container(20).HasFocus(9)">925</ondown>
                 <onleft>22</onleft>
                 <onright>21</onright>
-                <texturefocus>buttons/options_fo.png</texturefocus>
-                <texturenofocus>buttons/options_nofo.png</texturenofocus>
+                <texturefocus>special://skin/extras/buttons/options_fo.png</texturefocus>
+                <texturenofocus>special://skin/extras/buttons/options_nofo.png</texturenofocus>
                 <onclick>CancelAlarm(HomeTileMove,true)</onclick>
                 <onclick>CancelAlarm(HomeTileMoveTwo,true)</onclick>
                 <onclick>CancelAlarm(HomeTileMoveThree,true)</onclick>
@@ -404,7 +404,7 @@
             <control type="label">
                 <description>Home</description>
                 <include>HomeLabel</include>
-                <label>$VAR[HomeDVDLabel]</label>
+                <label>$LOCALIZE[41448]</label> 
                 <animation effect="fade" start="100" end="40" time="300" tween="cubic" easing="inout" condition="!Container(20).HasFocus(2)">Conditional</animation>
                 <animation effect="zoom"  start="100" end="80" time="300" tween="cubic" easing="inout" center="auto" condition="!Control.HasFocus(525)">Conditional</animation>
             </control>
@@ -679,7 +679,7 @@
                         <posy>202</posy>
                         <width>1291</width>
                         <height>168</height>
-                        <texture border="40">windows/home/tile-fo.png</texture>
+                        <texture border="40">special://skin/extras/home/tile-fo.png</texture>
                         <animation type="Visible">
                             <effect type="zoom" start="98" end="100" time="200" tween="sine" easing="inout" center="auto" />
                             <effect type="fade" start="0" end="100" time="200" tween="sine" easing="in" />
@@ -885,7 +885,7 @@
                                     <posy>3</posy>
                                     <width>325</width>
                                     <height>325</height>
-                                    <texture border="40">windows/home/tile-fo.png</texture>
+                                    <texture border="40">special://skin/extras/home/tile-fo.png</texture>
                                     <animation type="Focus">
                                         <effect type="zoom" start="95" end="100" time="200" tween="sine" easing="inout" center="auto" />
                                         <effect type="fade" start="0" end="100" time="200" tween="sine" easing="in" />
@@ -1018,7 +1018,9 @@
                     <onup condition="!System.HasMediaDVD">80</onup>
                     <onup condition="System.HasMediaDVD">EjectTray</onup>
                     <ondown>501</ondown>
-                    <onclick condition="System.HasMediaDVD">PlayDVD</onclick>
+					<!--
+                    <onclick condition="System.HasMediaDVD">PlayDVD</onclick>-->
+					<onclick>ActivateWindow(3003)</onclick>					
                 </control>
                 <control type="group" id="550">
                     <posy>100</posy>
@@ -1542,7 +1544,7 @@
                                     <posy>3</posy>
                                     <width>325</width>
                                     <height>325</height>
-                                    <texture border="40">windows/home/tile-fo.png</texture>
+                                    <texture border="40">special://skin/extras/home/tile-fo.png</texture>
                                     <animation type="Focus">
                                         <effect type="zoom" start="95" end="100" time="200" tween="sine" easing="inout" center="auto" />
                                         <effect type="fade" start="0" end="100" time="200" tween="sine" easing="in" />
@@ -1664,7 +1666,7 @@
                         <posy>-21</posy>
                         <width>614</width>
                         <height>614</height>
-                        <texture border="40">windows/home/tile-fo.png</texture>
+                        <texture border="40">special://skin/extras/home/tile-fo.png</texture>
                         <animation type="Visible">
                             <effect type="fade" start="0" end="100" time="200" tween="sine" easing="in" />
                         </animation>
@@ -1678,7 +1680,7 @@
                         <posy>-21</posy>
                         <width>424</width>
                         <height>614</height>
-                        <texture border="40">windows/home/tile-fo.png</texture>
+                        <texture border="40">special://skin/extras/home/tile-fo.png</texture>
                         <animation type="Visible">
                             <effect type="fade" start="0" end="100" time="200" tween="sine" easing="in" />
                         </animation>
@@ -2030,7 +2032,7 @@
                                     <posy>3</posy>
                                     <width>325</width>
                                     <height>325</height>
-                                    <texture border="40">windows/home/tile-fo.png</texture>
+                                    <texture border="40">special://skin/extras/home/tile-fo.png</texture>
                                     <animation type="Focus">
                                         <effect type="zoom" start="95" end="100" time="200" tween="sine" easing="inout" center="auto" />
                                         <effect type="fade" start="0" end="100" time="200" tween="sine" easing="in" />
@@ -2238,7 +2240,7 @@
                                     <posy>3</posy>
                                     <width>325</width>
                                     <height>325</height>
-                                    <texture border="40">windows/home/tile-fo.png</texture>
+                                    <texture border="40">special://skin/extras/home/tile-fo.png</texture>
                                     <animation type="Focus">
                                         <effect type="zoom" start="95" end="100" time="200" tween="sine" easing="inout" center="auto" />
                                         <effect type="fade" start="0" end="100" time="200" tween="sine" easing="in" />
@@ -2413,7 +2415,7 @@
                         <posy>-21</posy>
                         <width>424</width>
                         <height>614</height>
-                        <texture border="40">windows/home/tile-fo.png</texture>
+                        <texture border="40">special://skin/extras/home/tile-fo.png</texture>
                         <animation type="Visible">
                             <effect type="fade" start="0" end="100" time="200" tween="sine" easing="in" />
                         </animation>
@@ -2747,7 +2749,7 @@
                                     <posy>3</posy>
                                     <width>325</width>
                                     <height>325</height>
-                                    <texture border="40">windows/home/tile-fo.png</texture>
+                                    <texture border="40">special://skin/extras/home/tile-fo.png</texture>
                                     <animation type="Focus">
                                         <effect type="zoom" start="95" end="100" time="200" tween="sine" easing="inout" center="auto" />
                                         <effect type="fade" start="0" end="100" time="200" tween="sine" easing="in" />
@@ -2954,7 +2956,7 @@
                                     <posy>3</posy>
                                     <width>325</width>
                                     <height>325</height>
-                                    <texture border="40">windows/home/tile-fo.png</texture>
+                                    <texture border="40">special://skin/extras/home/tile-fo.png</texture>
                                     <animation type="Focus">
                                         <effect type="zoom" start="95" end="100" time="200" tween="sine" easing="inout" center="auto" />
                                         <effect type="fade" start="0" end="100" time="200" tween="sine" easing="in" />
@@ -3081,7 +3083,7 @@
                         <posy>-21</posy>
                         <width>713</width>
                         <height>614</height>
-                        <texture border="40">windows/home/tile-fo.png</texture>
+                        <texture border="40">special://skin/extras/home/tile-fo.png</texture>
                         <animation type="Visible">
                             <effect type="fade" start="0" end="100" time="200" tween="sine" easing="in" />
                         </animation>
@@ -3407,7 +3409,7 @@
                                     <posy>3</posy>
                                     <width>325</width>
                                     <height>325</height>
-                                    <texture border="40">windows/home/tile-fo.png</texture>
+                                    <texture border="40">special://skin/extras/home/tile-fo.png</texture>
                                     <animation type="Focus">
                                         <effect type="zoom" start="95" end="100" time="200" tween="sine" easing="inout" center="auto" />
                                         <effect type="fade" start="0" end="100" time="200" tween="sine" easing="in" />
@@ -3614,7 +3616,7 @@
                                     <posy>3</posy>
                                     <width>325</width>
                                     <height>325</height>
-                                    <texture border="40">windows/home/tile-fo.png</texture>
+                                    <texture border="40">special://skin/extras/home/tile-fo.png</texture>
                                     <animation type="Focus">
                                         <effect type="zoom" start="95" end="100" time="200" tween="sine" easing="inout" center="auto" />
                                         <effect type="fade" start="0" end="100" time="200" tween="sine" easing="in" />
@@ -3747,7 +3749,7 @@
                         <posy>-21</posy>
                         <width>614</width>
                         <height>614</height>
-                        <texture border="40">windows/home/tile-fo.png</texture>
+                        <texture border="40">special://skin/extras/home/tile-fo.png</texture>
                         <animation type="Visible">
                             <effect type="fade" start="0" end="100" time="200" tween="sine" easing="in" />
                         </animation>
@@ -3910,7 +3912,7 @@
                                     <posy>3</posy>
                                     <width>325</width>
                                     <height>325</height>
-                                    <texture border="40">windows/home/tile-fo.png</texture>
+                                    <texture border="40">special://skin/extras/home/tile-fo.png</texture>
                                     <animation type="Focus">
                                         <effect type="zoom" start="95" end="100" time="200" tween="sine" easing="inout" center="auto" />
                                         <effect type="fade" start="0" end="100" time="200" tween="sine" easing="in" />
@@ -4939,7 +4941,7 @@
                                     <posy>3</posy>
                                     <width>325</width>
                                     <height>325</height>
-                                    <texture border="40">windows/home/tile-fo.png</texture>
+                                    <texture border="40">special://skin/extras/home/tile-fo.png</texture>
                                     <animation type="Focus">
                                         <effect type="zoom" start="95" end="100" time="200" tween="sine" easing="inout" center="auto" />
                                         <effect type="fade" start="0" end="100" time="200" tween="sine" easing="in" />
@@ -5115,7 +5117,7 @@
                                     <posy>3</posy>
                                     <width>288</width>
                                     <height>325</height>
-                                    <texture border="40">windows/home/tile-fo.png</texture>
+                                    <texture border="40">special://skin/extras/home/tile-fo.png</texture>
                                     <animation type="Focus">
                                         <effect type="zoom" start="95" end="100" time="200" tween="sine" easing="inout" center="auto" />
                                         <effect type="fade" start="0" end="100" time="200" tween="sine" easing="in" />

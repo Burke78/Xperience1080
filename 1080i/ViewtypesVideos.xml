@@ -1590,11 +1590,12 @@
                             <height>61</height>
                             <texture border="90,3,90,3">views/list/other/separator.png</texture>
                         </control>
+						<!-- unfocused episode count -->
                         <control type="label">
                             <posx>60</posx>
                             <posy>0</posy>
                             <height>58</height>
-                            <width>70</width>
+                            <width>90</width>
                             <font>Font-Condensed-S31</font>
                             <label>$VAR[ListItem.Season]$VAR[ListItem.Episode]</label>
                             <selectedcolor>SelectedGreen</selectedcolor>
@@ -1603,8 +1604,9 @@
                             <scroll>false</scroll>
                             <visible>!IsEmpty(ListItem.Season) + !IsEmpty(ListItem.Episode)</visible>
                         </control>
+					
                         <control type="label">
-                            <posx>145</posx>
+                            <posx>165</posx>
                             <posy>0</posy>
                             <height>60</height>
                             <width>545</width>
@@ -1969,11 +1971,12 @@
                                 <effect type="fade" start="50" end="100" time="500" tween="sine" easing="inout" />
                             </animation>
                             <animation effect="fade" start="100" end="50" time="300" tween="sine" easing="inout" condition="!Control.HasFocus(52) + !Container(52).ListItem.IsPlaying">Conditional</animation>
-                            <control type="label">
+                            <!-- focused eps count -->
+							<control type="label">
                                 <posx>60</posx>
                                 <posy>0</posy>
                                 <height>58</height>
-                                <width>70</width>
+                                <width>90</width>
                                 <font>Font-Condensed-S31</font>
                                 <label>$VAR[ListItem.Season]$VAR[ListItem.Episode]</label>
                                 <selectedcolor>SelectedGreen</selectedcolor>
@@ -1981,9 +1984,9 @@
                                 <shadowcolor>22000000</shadowcolor>
                                 <scroll>false</scroll>
                                 <visible>!IsEmpty(ListItem.Season) + !IsEmpty(ListItem.Episode)</visible>
-                            </control>
+                            </control> 
                             <control type="label">
-                                <posx>145</posx>
+                                <posx>165</posx>
                                 <posy>0</posy>
                                 <height>60</height>
                                 <width>545</width>
