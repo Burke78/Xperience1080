@@ -1,7 +1,9 @@
-[B]1.0.0[/B]
+[B]1.0.1[/B]
 • Minor changes to home layout
-• Replaced Home with pictures
-• Rearanged main menu
-• Pictures panel can be editetd from home only
-• Volume bar is same on home and OSD
+• Replaced "Home" with "Pictures"
+• Small changes to main manu
+• All home tiles can be changed from home only
+• Changed focus overlay
+• Volume bar is same on Home and OSD
 • Added simpe carusel view
+• Changed watched / unwatched indicator

@@ -1020,7 +1020,7 @@
                     <ondown>501</ondown>
 					<!--
                     <onclick condition="System.HasMediaDVD">PlayDVD</onclick>-->
-					<onclick>ActivateWindow(3003)</onclick>					
+					<onclick>ActivateWindow(Pictures)</onclick>					
                 </control>
                 <control type="group" id="550">
                     <posy>100</posy>
@@ -1090,7 +1090,7 @@
                             <onfocus>CancelAlarm(HomeTileMoveTwo,true)</onfocus>
                             <onup>AlarmClock(HomeTileMoveTwo,Control.Move(5022,1),00:07,silent,loop)</onup>
                             <onup>525</onup>
-                            <ondown>Control.Move(5022,1)</ondown>
+                            <ondown>80</ondown>
                             <onleft>AlarmClock(HomeTileMoveTwo,Control.Move(5022,1),00:07,silent,loop)</onleft>
                             <onleft>501</onleft>
                             <onright>AlarmClock(HomeTileMoveTwo,Control.Move(5022,1),00:07,silent,loop)</onright>
@@ -1106,9 +1106,11 @@
                             <onright condition="Skin.HasSetting(HomeMovies) + Skin.HasSetting(HomeTVShows) + Skin.HasSetting(HomeMusic) + Skin.HasSetting(HomePrograms)">701</onright>
                             <onright>Control.Move(20,1)</onright>
                             <onclick condition="!Skin.HasSetting(Picturesdir)">ActivateWindow(Pictures)</onclick>
-                            <onback condition="!Skin.HasSetting(KioskMode)">SetProperty(SingleDialog,widget1,3003)</onback>
-                            <onback condition="!Skin.HasSetting(KioskMode)">SetProperty(Dialog,$LOCALIZE[41168],skinsettings)</onback>
-                            <onback condition="!Skin.HasSetting(KioskMode)">ActivateWindow(3003)</onback>
+                            <!--<onback condition="!Skin.HasSetting(KioskMode)">SetProperty(SingleDialog,widget1,3003)</onback>
+                            <onback condition="!Skin.HasSetting(KioskMode)">SetProperty(Dialog,$LOCALIZE[41168],skinsettings)</onback>-->
+                            <onback condition="!Skin.HasSetting(KioskMode)">Skin.SetPath(PicturesDir)</onback>
+							<include condition="!Skin.HasSetting(DarkerPanels)">SettingsCategoryDefaultButtonVars</include>
+							<include condition="Skin.HasSetting(DarkerPanels)">SettingsCategoryDefaultButtonVarsDarkerBackground</include>
                         </control>
 						<control type="group"> 
 
@@ -1250,7 +1252,7 @@
                             <align>left</align>
                             <aligny>center</aligny>
                             <textoffsetx>5</textoffsetx>
-                            <label>[UPPERCASE]$VAR[SpotlightLabelVAR][/UPPERCASE]</label>
+                            <label>[UPPERCASE]Spotligh[/UPPERCASE]</label>
                             <animation effect="slide" end="0,6" time="100" tween="sine" easing="out" condition="ControlGroup(502).HasFocus">Conditional</animation>
                         </control>
 						<!--
