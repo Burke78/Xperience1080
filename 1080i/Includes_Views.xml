@@ -785,5 +785,5 @@
         <value condition="IntegerGreaterThan(Container.NumItems,0) + !IntegerGreaterThan(Container.NumItems,1)">$INFO[Container.NumItems,, $LOCALIZE[41822]]</value>
         <value condition="IntegerGreaterThan(Container.NumItems,0)">$INFO[Container.NumItems,, $LOCALIZE[41817]]</value>
     </variable>
-    
+
 </includes>

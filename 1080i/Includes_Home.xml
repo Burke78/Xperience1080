@@ -214,6 +214,13 @@
         <value>$LOCALIZE[41556]</value>
     </variable>
  
+ 
+ 	<!-- varijabla fotke -->
+	
+	<variable name="Photo">
+        <value>home_pictures/001.jpg</value>
+    </variable>
+	
     <include name="HomeProfileInfo">
         <control type="group">
             <visible>!Window.IsActive(favourites) + !Window.IsActive(script-globalsearch-main.xml) + !Window.IsActive(script-globalsearch-infodialog.xml) + !Window.IsActive(script-globalsearch-contextmenu.xml) + ![Window.IsVisible(virtualkeyboard) + !IsEmpty(Window.Property(HomeSearch))]</visible>
@@ -990,7 +997,7 @@
                     </control>
                 </control>
             </control>
-			<!--### Home -->
+			<!--### Home ###-->
             <control type="group" id="500">
                 <description>Home</description>
                 <width>2320</width>
@@ -1075,19 +1082,36 @@
                         <height>150</height>
                         <texture>windows/home/item-shadow.png</texture>
                     </control>
-					<!-- Spotlight -->
-					
+					<!-- ### Spotlight ###-->
                     <control type="group" id="502">
+						<control type="image">
+                            <description>Title overlay</description>
+                            <posx>0</posx>
+                            <posy>0</posy>
+                            <width>763</width>
+                            <height>572</height>
+                            <colordiffuse>99000000</colordiffuse>
+                            <texture border="1">windows/common/black.png</texture>
+                       </control>
+						<control type="image">
+                                    <posx>244</posx>
+                                    <posy>142</posy>
+                                    <width>283</width>
+                                    <height>283</height>
+                                    <texture>windows/home/icons/addtile.png</texture>
+                                    <visible>IsEmpty(ListItem.Property(Path))</visible>
+						</control>
                         <description>Spotlight (random items)</description>
                         <posx>289</posx>
                         <posy>0</posy>
                         <control type="button" id="5021">
                             <posx>0</posx>
                             <posy>0</posy>
-                            <width>572</width>
+                            <width>763</width>
                             <height>572</height>
                             <onfocus>CancelAlarm(HomeTileMove,true)</onfocus>
                             <onfocus>CancelAlarm(HomeTileMoveTwo,true)</onfocus>
+							<nofocus>CancelAlarm(HomeTileMoveTwo,true)</nofocus>	
                             <onup>AlarmClock(HomeTileMoveTwo,Control.Move(5022,1),00:07,silent,loop)</onup>
                             <onup>525</onup>
                             <ondown>80</ondown>
@@ -1109,15 +1133,14 @@
                             <!--<onback condition="!Skin.HasSetting(KioskMode)">SetProperty(SingleDialog,widget1,3003)</onback>
                             <onback condition="!Skin.HasSetting(KioskMode)">SetProperty(Dialog,$LOCALIZE[41168],skinsettings)</onback>-->
                             <onback condition="!Skin.HasSetting(KioskMode)">Skin.SetPath(PicturesDir)</onback>
-							<include condition="!Skin.HasSetting(DarkerPanels)">SettingsCategoryDefaultButtonVars</include>
-							<include condition="Skin.HasSetting(DarkerPanels)">SettingsCategoryDefaultButtonVarsDarkerBackground</include>
+							<include condition="!Skin.HasSetting(DarkerPanels)">SettingsCategoryDefaultButtonVars</include>		
                         </control>
 						<control type="group"> 
-
+						<!--- ### fotka spotlight -->
 						<control type="multiimage">
 							<posx>0</posx>
 							<posy>0</posy>
-							<width>772</width>
+							<width>763</width>
 							<height>570</height>
 							<timeperimage>10000</timeperimage>
 							<randomize>true</randomize>
@@ -1127,8 +1150,9 @@
 							<animation effect="fade" start="100" delay="500" end="0" time="10">Hidden</animation>
 							<aspectratio>scale</aspectratio>
 							<imagepath background="true" fallback="pictures.png">$INFO[Skin.String(PicturesDir)]</imagepath>
+							<texturefocus background="true" fallback="media/windows/common/black.png">$INFO[ListItem.addtile]</texturefocus>
+							<texturenofocus background="true" fallback="media/windows/common/black.png">$INFO[ListItem.addtile]</texturenofocus>							
 						</control>
-						<!--reflect-->
 						</control>
 
 						<!--
@@ -1496,6 +1520,301 @@
                         <onback condition="!Skin.HasSetting(KioskMode)">SetProperty(EditTile,1)</onback>
                         <onback condition="!Skin.HasSetting(KioskMode)">Select</onback>
                         <scrolltime>0</scrolltime>
+						
+						<!-- ikone -->
+                        <itemlayout width="289" height="289">
+                            <control type="group">
+                                <animation effect="fade" end="90" time="0" condition="true">Conditional</animation>
+                                <control type="image">
+                                    <posx>19</posx>
+                                    <posy>19</posy>
+                                    <width>293</width>
+                                    <height>293</height>
+                                    <texture border="7">windows/home/tile.png</texture>
+                                </control>
+                                <control type="image">
+                                    <posx>24</posx>
+                                    <posy>24</posy>
+                                    <width>283</width>
+                                    <height>283</height>
+                                    <texture background="true">$INFO[ListItem.Icon]</texture>
+                                    <aspectratio>scale</aspectratio>
+                                    <visible>!IsEmpty(ListItem.Property(Path))</visible>
+                                </control>
+                                <control type="image">
+                                    <posx>24</posx>
+                                    <posy>24</posy>
+                                    <width>283</width>
+                                    <height>283</height>
+                                    <texture>windows/home/icons/addtile.png</texture>
+                                    <visible>IsEmpty(ListItem.Property(Path))</visible>
+                                </control>
+                                <control type="group">
+                                    <visible>!IsEmpty(ListItem.property(showlabel))</visible>
+                                    <control type="image">
+                                        <posx>24</posx>
+                                        <posy>241</posy>
+                                        <width>283</width>
+                                        <height>66</height>
+                                        <texture border="1">windows/home/tile-overlay.png</texture>
+                                        <colordiffuse>99FFFFFF</colordiffuse>
+                                    </control>
+                                    <control type="label">
+                                        <posx>24</posx>
+                                        <posy>241</posy>
+                                        <width>283</width>
+                                        <height>66</height>
+                                        <label>$INFO[ListItem.Label]</label>
+                                        <font>Font-Condensed-S33</font>
+                                        <textcolor>aawhite</textcolor>
+                                        <align>left</align>
+                                        <aligny>center</aligny>
+                                        <textoffsetx>20</textoffsetx>
+                                    </control>
+                                </control>
+                            </control>
+                        </itemlayout> -->
+						<!-- kraj ikona -->
+                        <focusedlayout width="289" height="289">
+                            <control type="group">
+                                <control type="image">
+                                    <posx>3</posx>
+                                    <posy>3</posy>
+                                    <width>325</width>
+                                    <height>325</height>
+                                    <texture border="40">special://skin/extras/home/tile-fo.png</texture>
+                                    <animation type="Focus">
+                                        <effect type="zoom" start="95" end="100" time="200" tween="sine" easing="inout" center="auto" />
+                                        <effect type="fade" start="0" end="100" time="200" tween="sine" easing="in" />
+                                    </animation>
+                                    <animation type="Unfocus">
+                                        <effect type="zoom" start="100" end="95" time="200" tween="sine" easing="inout" center="auto" />
+                                        <effect type="fade" start="100" end="0" time="200" tween="sine" easing="out" />
+                                    </animation>
+                                </control>
+                                <control type="group">
+                                    <animation type="Focus">
+                                        <effect type="fade" start="90" end="100" time="200" tween="sine" easing="in" />
+                                    </animation>
+                                    <animation type="Unfocus">
+                                        <effect type="fade" start="100" end="90" time="200" tween="sine" easing="out" />
+                                    </animation>
+                                    <control type="image">
+                                        <posx>19</posx>
+                                        <posy>19</posy>
+                                        <width>293</width>
+                                        <height>293</height>
+                                        <texture border="7">windows/home/tile.png</texture>
+                                    </control>
+                                    <control type="image">
+                                        <posx>24</posx>
+                                        <posy>24</posy>
+                                        <width>283</width>
+                                        <height>283</height>
+                                        <texture background="true">$INFO[ListItem.Icon]</texture>
+                                        <aspectratio>scale</aspectratio>
+                                        <visible>!IsEmpty(ListItem.Property(Path))</visible>
+                                        <animation type="Focus" condition="!IsEmpty(Container(203).ListItem.Property(animate))" reversible="false">
+                                            <effect type="zoom" end="115" time="75" tween="sine" easing="out" center="auto" />
+                                            <effect type="zoom" end="86.9565217" time="225" tween="sine" delay="100" easing="out" center="auto" />
+                                        </animation>
+                                    </control>
+                                    <control type="image">
+                                        <posx>24</posx>
+                                        <posy>24</posy>
+                                        <width>283</width>
+                                        <height>283</height>
+                                        <texture>windows/home/icons/addtile.png</texture>
+                                        <visible>IsEmpty(ListItem.Property(Path))</visible>
+                                        <animation type="Focus" reversible="false">
+                                            <effect type="zoom" end="115" time="75" tween="sine" easing="out" center="auto" />
+                                            <effect type="zoom" end="86.9565217" time="225" tween="sine" delay="100" easing="out" center="auto" />
+                                        </animation>
+                                    </control>
+                                    <control type="group">
+                                        <visible>!IsEmpty(ListItem.property(showlabel)) + !IsEmpty(ListItem.Property(Path))</visible>
+                                        <control type="image">
+                                            <posx>24</posx>
+                                            <posy>241</posy>
+                                            <width>283</width>
+                                            <height>66</height>
+                                            <texture border="1">windows/home/tile-overlay.png</texture>
+                                        <colordiffuse>99FFFFFF</colordiffuse>
+                                        </control>
+                                        <control type="label">
+                                            <posx>24</posx>
+                                            <posy>241</posy>
+                                            <width>283</width>
+                                            <height>66</height>
+                                            <label>$INFO[ListItem.Label]</label>
+                                            <font>Font-Condensed-S33</font>
+                                            <textcolor>aawhite</textcolor>
+                                            <align>left</align>
+                                            <aligny>center</aligny>
+                                            <textoffsetx>20</textoffsetx>
+                                        </control>
+                                    </control>
+                                </control>
+                            </control>
+                        </focusedlayout>
+						<!-- ikone 
+                        <itemlayout width="289" height="289">
+                            <control type="group">
+                                <animation effect="fade" end="90" time="0" condition="true">Conditional</animation>
+                                <control type="image">
+                                    <posx>19</posx>
+                                    <posy>19</posy>
+                                    <width>293</width>
+                                    <height>293</height>
+                                    <texture border="7">windows/home/tile.png</texture>
+                                </control>
+                                <control type="image">
+                                    <posx>24</posx>
+                                    <posy>24</posy>
+                                    <width>283</width>
+                                    <height>283</height>
+                                    <texture background="true">$INFO[ListItem.Icon]</texture>
+                                    <aspectratio>scale</aspectratio>
+                                    <visible>!IsEmpty(ListItem.Property(Path))</visible>
+                                </control>
+                                <control type="image">
+                                    <posx>24</posx>
+                                    <posy>24</posy>
+                                    <width>283</width>
+                                    <height>283</height>
+                                    <texture>windows/home/icons/addtile.png</texture>
+                                    <visible>IsEmpty(ListItem.Property(Path))</visible>
+                                </control>
+                                <control type="group">
+                                    <visible>!IsEmpty(ListItem.property(showlabel))</visible>
+                                    <control type="image">
+                                        <posx>24</posx>
+                                        <posy>241</posy>
+                                        <width>283</width>
+                                        <height>66</height>
+                                        <texture border="1">windows/home/tile-overlay.png</texture>
+                                        <colordiffuse>99FFFFFF</colordiffuse>
+                                    </control>
+                                    <control type="label">
+                                        <posx>24</posx>
+                                        <posy>241</posy>
+                                        <width>283</width>
+                                        <height>66</height>
+                                        <label>$INFO[ListItem.Label]</label>
+                                        <font>Font-Condensed-S33</font>
+                                        <textcolor>aawhite</textcolor>
+                                        <align>left</align>
+                                        <aligny>center</aligny>
+                                        <textoffsetx>20</textoffsetx>
+                                    </control>
+                                </control>
+                            </control>
+                        </itemlayout>						
+                        <focusedlayout width="289" height="289">
+                            <control type="group">
+                                <control type="image">
+                                    <posx>3</posx>
+                                    <posy>3</posy>
+                                    <width>325</width>
+                                    <height>325</height>
+                                    <texture border="40">special://skin/extras/home/tile-fo.png</texture>
+                                    <animation type="Focus">
+                                        <effect type="zoom" start="95" end="100" time="200" tween="sine" easing="inout" center="auto" />
+                                        <effect type="fade" start="0" end="100" time="200" tween="sine" easing="in" />
+                                    </animation>
+                                    <animation type="Unfocus">
+                                        <effect type="zoom" start="100" end="95" time="200" tween="sine" easing="inout" center="auto" />
+                                        <effect type="fade" start="100" end="0" time="200" tween="sine" easing="out" />
+                                    </animation>
+                                </control>
+                                <control type="group">
+                                    <animation type="Focus">
+                                        <effect type="fade" start="90" end="100" time="200" tween="sine" easing="in" />
+                                    </animation>
+                                    <animation type="Unfocus">
+                                        <effect type="fade" start="100" end="90" time="200" tween="sine" easing="out" />
+                                    </animation>
+                                    <control type="image">
+                                        <posx>19</posx>
+                                        <posy>19</posy>
+                                        <width>293</width>
+                                        <height>293</height>
+                                        <texture border="7">windows/home/tile.png</texture>
+                                    </control>
+								
+                                    <control type="image">
+                                        <posx>24</posx>
+                                        <posy>24</posy>
+                                        <width>283</width>
+                                        <height>283</height>
+									
+                                        <texture background="true">$INFO[ListItem.Icon]</texture>
+                                        <aspectratio>scale</aspectratio>
+										<visible>!IsEmpty(ListItem.Property(Path))</visible>
+										
+										<texture>windows/home/icons/addtile.png</texture>
+										<visible>IsEmpty(ListItem.Property(Path))</visible>
+                                        <animation type="Focus" condition="[!IsEmpty(Container(301).ListItem.Property(Path)) + !IsEmpty(Container(301).ListItem.Property(animate))] | IsEmpty(Container(301).ListItem.Property(Path))" reversible="false">
+                                            <effect type="zoom" end="115" time="75" tween="sine" easing="out" center="auto" />
+                                            <effect type="zoom" end="86.9565217" time="225" tween="sine" delay="100" easing="out" center="auto" />
+                                        </animation>
+                                    </control>
+                                    <control type="group">
+                                        <visible>[!IsEmpty(ListItem.property(showlabel)) + !IsEmpty(ListItem.Property(Path))] | IsEmpty(ListItem.Property(Path))</visible>
+                                        <control type="image">
+                                            <posx>24</posx>
+                                            <posy>241</posy>
+                                            <width>283</width>
+                                            <height>66</height>
+                                            <texture border="1">windows/home/tile-overlay.png</texture>
+                                            <colordiffuse>99FFFFFF</colordiffuse>
+                                        </control>
+										<control type="label">
+											<posx>24</posx>
+											<posy>241</posy>
+											<width>283</width>
+											<height>66</height>
+											<label>$INFO[ListItem.Label]</label>
+											<font>Font-Condensed-S33</font>
+											<textcolor>aawhite</textcolor>
+											<align>left</align>
+											<aligny>center</aligny>
+											<textoffsetx>20</textoffsetx>
+										</control>
+									
+                                        <control type="label">
+                                            <posx>24</posx>
+                                            <posy>241</posy>
+                                            <width>283</width>
+                                            <height>66</height>
+                                            <label>$INFO[ListItem.Label]</label>
+                                            <font>Font-Condensed-S33</font>
+                                            <textcolor>aawhite</textcolor>
+                                            <align>left</align>
+                                            <aligny>center</aligny>
+                                            <textoffsetx>20</textoffsetx>
+                                        </control>
+                                        <control type="label">
+                                            <posx>307</posx>
+                                            <posy>241</posy>
+                                            <width>283</width>
+                                            <height>66</height>
+                                            <label>$INFO[ListItem.Label2]</label>
+                                            <font>Font-Condensed-S31-B</font>
+                                            <textcolor>77white</textcolor>
+                                            <align>right</align>
+                                            <aligny>center</aligny>
+                                            <textoffsetx>20</textoffsetx>
+                                            <visible>!IsEmpty(ListItem.Label2) + IsEmpty(ListItem.Property(Path))</visible>
+                                        </control>
+										
+                                    </control>
+                                </control>
+                            </control>
+                        </focusedlayout>
+						kraj fokusa-->
+						
+						<!-- ### ikone lijeva strana ### 
                         <itemlayout width="289" height="289">
                             <control type="group">
                                 <animation effect="fade" end="90" time="0" condition="true">Conditional</animation>
@@ -1538,7 +1857,7 @@
                                     </control>
                                 </control>
                             </control>
-                        </itemlayout>
+                        </itemlayout>  
                         <focusedlayout width="289" height="289">
                             <control type="group">
                                 <control type="image">
@@ -1607,7 +1926,7 @@
                                     </control>
                                 </control>
                             </control>
-                        </focusedlayout>
+                        </focusedlayout> -->
                         <content>
                             <item id="1">
                                 <label fallback="41450">$INFO[Skin.String(HomeHomeTile1.Label)]</label>
@@ -2164,6 +2483,7 @@
                             </item>
                         </content>
                     </control>
+					
                     <control type="panel" id="203">
                         <posx>653</posx>
                         <posy>-24</posy>
@@ -2183,6 +2503,7 @@
                         <onback condition="!Skin.HasSetting(KioskMode)">SetProperty(EditTile,1)</onback>
                         <onback condition="!Skin.HasSetting(KioskMode)">Select</onback>
                         <scrolltime>0</scrolltime>
+						<!-- ikone -->
                         <itemlayout width="289" height="289">
                             <control type="group">
                                 <animation effect="fade" end="90" time="0" condition="true">Conditional</animation>
@@ -2234,7 +2555,8 @@
                                     </control>
                                 </control>
                             </control>
-                        </itemlayout>
+                        </itemlayout> -->
+						<!-- kraj ikona -->
                         <focusedlayout width="289" height="289">
                             <control type="group">
                                 <control type="image">
@@ -2744,6 +3066,7 @@
                                 </control>
                             </control>
                         </itemlayout>
+						<!-- fokua -->
                         <focusedlayout width="289" height="289">
                             <control type="group">
                                 <control type="image">
@@ -2826,6 +3149,7 @@
                                 </control>
                             </control>
                         </focusedlayout>
+						<!-- kraj fokusa-->
                         <content>
                             <item id="1">
                                 <label fallback="20343">$INFO[Skin.String(HomeTVShowTile3.Label)]</label>
