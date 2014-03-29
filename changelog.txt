@@ -1,3 +1,6 @@
+[B]1.2.0[/B]
+• Cleaning up
+
 [B]1.0.1[/B]
 • Minor changes to home layout
 • Replaced "Home" with "Pictures"
@@ -7,3 +10,4 @@
 • Volume bar is same on Home and OSD
 • Added simpe carusel view
 • Changed watched / unwatched indicator
+

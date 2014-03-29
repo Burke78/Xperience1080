@@ -543,12 +543,12 @@
     
     <variable name="ListItem.Label2">
         <value condition="stringcompare(Container.SortMethod,$LOCALIZE[570])">$INFO[ListItem.DateAdded, ,]</value>
-        <value condition="stringcompare(Container.SortMethod,$LOCALIZE[556]) | stringcompare(Container.SortMethod,$LOCALIZE[562]) | stringcompare(Container.SortMethod,$LOCALIZE[563]) | stringcompare(Container.SortMethod,$LOCALIZE[551]) | stringcompare(Container.SortMethod,$LOCALIZE[20359])">$INFO[ListItem.Rating, ★ ,]</value>
+        <value condition="stringcompare(Container.SortMethod,$LOCALIZE[556]) | stringcompare(Container.SortMethod,$LOCALIZE[562]) | stringcompare(Container.SortMethod,$LOCALIZE[563]) | stringcompare(Container.SortMethod,$LOCALIZE[551]) | stringcompare(Container.SortMethod,$LOCALIZE[20359])">$INFO[ListItem.Rating, * ,]</value>
         <value>$INFO[ListItem.Label2, ,]</value>
     </variable>
     
     <variable name="ListItem.Label2.Year">
-        <value condition="stringcompare(Container.SortMethod,$LOCALIZE[556]) | stringcompare(Container.SortMethod,$LOCALIZE[562]) | stringcompare(Container.SortMethod,$LOCALIZE[563]) | stringcompare(Container.SortMethod,$LOCALIZE[551]) | stringcompare(Container.SortMethod,$LOCALIZE[20359])">$INFO[ListItem.Year]$INFO[ListItem.Rating,  ★  ,]</value>
+        <value condition="stringcompare(Container.SortMethod,$LOCALIZE[556]) | stringcompare(Container.SortMethod,$LOCALIZE[562]) | stringcompare(Container.SortMethod,$LOCALIZE[563]) | stringcompare(Container.SortMethod,$LOCALIZE[551]) | stringcompare(Container.SortMethod,$LOCALIZE[20359])">$INFO[ListItem.Year]$INFO[ListItem.Rating,  *  ,]</value>
         <value>$INFO[ListItem.Label2, ,]</value>
     </variable>
     
@@ -724,7 +724,7 @@
     <variable name="MusicInfoListSongLabel2">
         <value condition="stringcompare(Container.SortMethod,$LOCALIZE[567]) | stringcompare(Container.SortMethod,$LOCALIZE[576])">$INFO[ListItem.PlayCount, [,] ]$INFO[ListItem.Duration]</value>
         <value condition="stringcompare(Container.SortMethod,$LOCALIZE[562])">$INFO[ListItem.Year, [,] ]$INFO[ListItem.Duration]</value>
-        <value condition="stringcompare(Container.SortMethod,$LOCALIZE[563])">$INFO[ListItem.Rating, [,★] ]$INFO[ListItem.Duration]</value>
+        <value condition="stringcompare(Container.SortMethod,$LOCALIZE[563])">$INFO[ListItem.Rating, [,*] ]$INFO[ListItem.Duration]</value>
         <value condiiton="!IsEmpty(ListItem.Duration)">$INFO[ListItem.Duration, ,]</value>
     </variable>
     
@@ -744,15 +744,15 @@
     </variable>
     
     <variable name="VideoPanelThumbInfo">
-        <value condition="Container.Content(movies)">$INFO[ListItem.Rating,★ , [COLOR=44FFFFFF]/[/COLOR] ]$INFO[ListItem.Year]$INFO[ListItem.Duration, [COLOR=44FFFFFF]/[/COLOR] , $LOCALIZE[12391]]$VAR[LandscapeHDSD3DLabel]</value>
+        <value condition="Container.Content(movies)">$INFO[ListItem.Rating,* , [COLOR=44FFFFFF]/[/COLOR] ]$INFO[ListItem.Year]$INFO[ListItem.Duration, [COLOR=44FFFFFF]/[/COLOR] , $LOCALIZE[12391]]$VAR[LandscapeHDSD3DLabel]</value>
         <value>$INFO[ListItem.Property(UnWatchedEpisodes),$LOCALIZE[41311],]</value>
     </variable>
     
     <variable name="ThumbnailViewDetailInfo">
-        <value condition="Container.Content(episodes) + !IsEmpty(ListItem.Overlay)">$INFO[ListItem.Premiered]$INFO[ListItem.Rating, ★ ,]      </value>
-        <value condition="Container.Content(episodes) + IsEmpty(ListItem.Overlay)">$INFO[ListItem.Premiered]$INFO[ListItem.Rating, ★ ,]</value>
-        <value condition="!Container.Content(episodes) + !IsEmpty(ListItem.Overlay)">$INFO[ListItem.Label2]$INFO[ListItem.Rating, ★ ,]      </value>
-        <value>$INFO[ListItem.Label2]$INFO[ListItem.Rating, ★ ,]</value>
+        <value condition="Container.Content(episodes) + !IsEmpty(ListItem.Overlay)">$INFO[ListItem.Premiered]$INFO[ListItem.Rating, * ,]      </value>
+        <value condition="Container.Content(episodes) + IsEmpty(ListItem.Overlay)">$INFO[ListItem.Premiered]$INFO[ListItem.Rating, * ,]</value>
+        <value condition="!Container.Content(episodes) + !IsEmpty(ListItem.Overlay)">$INFO[ListItem.Label2]$INFO[ListItem.Rating, * ,]      </value>
+        <value>$INFO[ListItem.Label2]$INFO[ListItem.Rating, * ,]</value>
     </variable>
     
     <variable name="InfoListInfo">

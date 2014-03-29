@@ -1019,7 +1019,7 @@ msgid "Panel ■"
 msgstr ""
 
 msgctxt "#42226"
-msgid "Panel Carousel"
+msgid "Landscape"
 msgstr ""
 
 msgctxt "#42227"

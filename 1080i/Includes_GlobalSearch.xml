@@ -205,7 +205,7 @@
                     <posy>51</posy>
                     <width>250</width>
                     <height>100</height>
-                    <label>$INFO[Container(100).ListItem.Property(Rating),, ★]</label>
+                    <label>$INFO[Container(100).ListItem.Property(Rating),, *]</label>
                     <font>Font-Condensed-S75</font>
                     <textcolor>aawhite</textcolor>
                     <align>right</align>
@@ -455,7 +455,7 @@
                             <height>36</height>
                             <font>Font-Condensed-S34</font>
                             <align>left</align>
-                            <label>$INFO[Container(100).ListItem.Property(Year),, • ]$INFO[Container(100).ListItem.Property(Duration),, $LOCALIZE[12391]]$INFO[Container(100).ListItem.Property(Rating), • ★ ,]</label>
+                            <label>$INFO[Container(100).ListItem.Property(Year),, • ]$INFO[Container(100).ListItem.Property(Duration),, $LOCALIZE[12391]]$INFO[Container(100).ListItem.Property(Rating), • * ,]</label>
                             <textcolor>aawhite</textcolor>
                             <scroll>false</scroll>
                         </control>

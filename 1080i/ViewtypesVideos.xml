@@ -1590,12 +1590,11 @@
                             <height>61</height>
                             <texture border="90,3,90,3">views/list/other/separator.png</texture>
                         </control>
-						<!-- unfocused episode count -->
                         <control type="label">
                             <posx>60</posx>
                             <posy>0</posy>
                             <height>58</height>
-                            <width>90</width>
+                            <width>70</width>
                             <font>Font-Condensed-S31</font>
                             <label>$VAR[ListItem.Season]$VAR[ListItem.Episode]</label>
                             <selectedcolor>SelectedGreen</selectedcolor>
@@ -1604,9 +1603,8 @@
                             <scroll>false</scroll>
                             <visible>!IsEmpty(ListItem.Season) + !IsEmpty(ListItem.Episode)</visible>
                         </control>
-					
                         <control type="label">
-                            <posx>165</posx>
+                            <posx>145</posx>
                             <posy>0</posy>
                             <height>60</height>
                             <width>545</width>
@@ -1971,12 +1969,11 @@
                                 <effect type="fade" start="50" end="100" time="500" tween="sine" easing="inout" />
                             </animation>
                             <animation effect="fade" start="100" end="50" time="300" tween="sine" easing="inout" condition="!Control.HasFocus(52) + !Container(52).ListItem.IsPlaying">Conditional</animation>
-                            <!-- focused eps count -->
-							<control type="label">
+                            <control type="label">
                                 <posx>60</posx>
                                 <posy>0</posy>
                                 <height>58</height>
-                                <width>90</width>
+                                <width>70</width>
                                 <font>Font-Condensed-S31</font>
                                 <label>$VAR[ListItem.Season]$VAR[ListItem.Episode]</label>
                                 <selectedcolor>SelectedGreen</selectedcolor>
@@ -1984,9 +1981,9 @@
                                 <shadowcolor>22000000</shadowcolor>
                                 <scroll>false</scroll>
                                 <visible>!IsEmpty(ListItem.Season) + !IsEmpty(ListItem.Episode)</visible>
-                            </control> 
+                            </control>
                             <control type="label">
-                                <posx>165</posx>
+                                <posx>145</posx>
                                 <posy>0</posy>
                                 <height>60</height>
                                 <width>545</width>
@@ -2390,156 +2387,980 @@
     </include>
 
 <!-- ============== -->
-<!-- Carusel (54) -->
+<!-- Landscape (54) -->
 <!-- ============== -->
-    <include name="Viewtype-PanelCarousel">
+    <include name="Viewtype-Landscape">
         <control type="group">
-			<visible>Control.IsVisible(54) + !Window.IsActive(movieinformation)</visible>
-			<include>CommonViewAnimations</include>
-			<include>OptionsShutdownAnimation</include>
-			<control type="group">
-				<posy>240</posy>
-				<animation effect="fade" start="0" end="100" time="400" delay="600" reversible="false">Visible</animation>
-				<visible>!Container(54).OnNext + !Container(54).OnPrevious + !Container(54).Scrolling</visible>
-			</control>	
-			<control type="wraplist" id="54">
-				<posx>0</posx>
-				<posy>180</posy>
-				<width>1920</width>
-				<height>722</height>
-				<scrolltime tween="cubic" easing="out">500</scrolltime>
-				<orientation>horizontal</orientation>
-				<viewtype label="Panel (Carousel)">list</viewtype>
-                <onup condition="!Skin.HasSetting(KioskMode)">9010</onup>
-                <onup condition="Skin.HasSetting(KioskMode)">54</onup>
-                <ondown>70</ondown>
-				<onleft>54</onleft>
-				<onright>54</onright>
-				<preloaditems>2</preloaditems>
-				<!-- grupa za sve-->
-				<itemlayout width="1920" height="800">
-					<control type="group">
-						<posx>286</posx>
-						<animation type="Conditional" condition="true">
-							<effect type="zoom" start="100" end="50" time="0" center="auto" />
-						</animation>
-						<animation effect="slide" start="0" end="280,32" condition="Container.Content(episodes)">Conditional</animation>
-						<!-- ????-->
-						<control type="group">
-							<posx>0</posx>
-							<control type="image">
-								<description>Poster</description>
-								<posx>0</posx>
-								<posy>6</posy>
-								<width>492</width>
-								<height>702</height>
-								<texture background="true" diffuse="views/newgloss/panel-bigposter-diffuse.png">$VAR[WallPoster]</texture>
-								<aspectratio>stretch</aspectratio>
-								<visible>!Container.Content(episodes)</visible>
-							</control>
-						</control>
-					</control>
-				</itemlayout>
-				<!-- fokus-->
-				<focusedlayout width="1920" height="722">
-					<control type="group">
-						<animation effect="slide" start="0" end="280,32" condition="Container.Content(episodes)">Conditional</animation>
-						<animation type="Focus" condition="Container(54).OnNext | Container(54).OnPrevious">
-							<effect type="zoom" start="50" end="100" time="350" tween="sine" easing="out" center="auto" />
-						</animation>
-						<animation type="Unfocus" condition="Container(54).OnNext | Container(54).OnPrevious">
-							<effect type="zoom" start="100" end="50" time="250" tween="sine" easing="out" center="auto" />
-						</animation>
-						<!-- Poster -->
-						<control type="group">
-							<posx>-510</posx>
-							<control type="image">
-								<description>Poster</description>
-								<posx>0</posx>
-								<posy>6</posy>
-								<width>492</width>
-								<height>702</height>
-								<texture background="true" diffuse="views/newgloss/panel-bigposter-diffuse.png">$VAR[WallPoster]</texture>
-								<aspectratio>stretch</aspectratio>
-								<visible>!Container.Content(episodes)</visible>
-							</control>
-							<!-- indikator -->
-							<control type="image">
-								<posx>417</posx>
-								<posy>6</posy>
-								<width>75</width>
-								<height>75</height>
-								<texture>$VAR[InfoPanelOverlay]</texture>
-								<visible>!IsEmpty(ListItem.Overlay)</visible>
-							</control>
-						</control>
-						<posx>846</posx>
-						<control type="group">
-							<!-- fanart-->
-							<control type="image">
-								<description>Landscape</description>
-								<posx>6</posx>
-								<posy>6</posy>
-								<width>828</width>
-								<height>464</height>
-								<texture background="true">$VAR[ListFanart]</texture>
-								<aspectratio scalediffuse="false">stretch</aspectratio>
-								<fadetime>200</fadetime>
-							</control>
-							<!-- textovi / naslov-->
-							<control type="group">
-								<posy>472</posy>
-								<control type="label">
-									<posx>63</posx>
-									<posy>30</posy>
-									<width>770</width>
-									<label>$INFO[ListItem.Label]</label>
-									<font>Font-Condensed-S45</font>
-									<textcolor>FF31D0FF</textcolor>
-									<scroll>true</scroll>
-									<align>left</align>
-								</control>
-								<control type="label">
-									<posx>6</posx>
-									<posy>35</posy>
-									<width>70</width>
-									<label>$INFO[ListItem.rating]</label>
-									<font>Font-Condensed-S32</font>
-									<textcolor>FFDDDDDD</textcolor>
-									<scroll>true</scroll>
-									<align>left</align>
-								</control>
-								<!-- textovi / sadr�aj -->
-								<control type="textbox">
-									<posx>24</posx>
-									<posy>100</posy>
-									<width>790</width>
-									<height>143</height>
-									<label>$INFO[ListItem.Plot]</label>
-									<font>Font-Condensed-s32</font>
-									<textcolor>FFDDDDDD</textcolor>
-									<align>justify</align>
-									<autoscroll delay="13000" time="3000" repeat="13000" />
-								</control>
-								<!-- textovi / ostalo -->
-								<!-- <control type="label">
-									<posx>24</posx>
-									<posy>80</posy>
-									<width>790</width>
-									<label>$INFO[ListItem.Rating] / $INFO[ListItem.year] / Director: $INFO[ListItem.Director] / $INFO[ListItem.Genre]</label>
-									<font>Font-Condensed-s26</font>
-									<textcolor>77white</textcolor>
-									<scroll>false</scroll>
-									<align>left</align>
-								</control>-->
-							</control>
-						</control>
-					</control>
-				</focusedlayout>
-			</control>
-		</control>
-	</include>
+            <include>FullscreenDimensions</include>
+            <include>OptionsShutdownAnimation</include>
+            
+            <control type="image" id="81">
+                <animation type="WindowOpen" reversible="false">
+                    <effect type="fade" start="0" end="100" delay="700" time="0" />
+                </animation>
+                <animation effect="fade" start="0" end="100" time="0" delay="1000" reversible="false">Visible</animation>
+                <animation effect="fade" start="100" end="0" time="0" reversible="false">Hidden</animation>
+                <visible>!Window.IsActive(movieinformation) + !Window.IsActive(script-Actors-DialogInfo.xml) + !Window.IsActive(script-Actors-DialogVideoInfo.xml) + IsEmpty(Window(Home).Property(script.metadata.actors.hasparent)) + Control.IsVisible(54) + !Window.IsActive(favourites)</visible>
+            </control>
+            
+            <control type="group">
+                <posx>100</posx>
+                <posy>260</posy>
+                <animation effect="fade" start="0" end="100" time="0" reversible="false">Visible</animation>
+                <visible>Window.Next(Home) | Window.Next(programs) | Window.Next(pictures) | Window.Next(filemanager) | Window.Next(settings) | Window.Next(music) | Window.Next(systeminfo) | Window.Next(screencalibration) | Window.Next(picturessettings) | Window.Next(programssettings) | Window.Next(weathersettings) | Window.Next(musicsettings) | Window.Next(systemsettings) | Window.Next(videossettings) | Window.Next(servicesettings) | Window.Next(appearancesettings) | Window.Next(pvrsettings) | Window.Next(videos) | Window.Next(videoplaylist) | Window.Next(LoginScreen) | Window.Next(profiles) | Window.Next(addonbrowser) | Window.Next(filebrowser) | Window.Next(ProfileSettings) | Window.Next(LockSettings) | Window.Next(smartplaylisteditor) | Window.Next(smartplaylistrule) | Window.Next(musicplaylist) | Window.Next(musicfiles) | Window.Next(musiclibrary) | Window.Next(fullscreenvideo) | Window.Next(visualisation) | Window.Next(slideshow) | Window.Next(karaoke) | Window.Next(weather) | Window.Next(pvr) | Window.Next(script-NextAired-TVGuide.xml) | !Control.IsVisible(81)</visible>
+                <control type="group">
+                    <animation type="WindowOpen">
+                        <effect type="fade" start="0" end="100" delay="100" tween="sine" easing="in" time="300" />
+                        <effect type="slide" start="-400" end="0" delay="100" tween="cubic" easing="out" time="600" />
+                    </animation>
+                    <animation type="Visible" condition="IsEmpty(Window(home).property(NoAnimation)) + !Window.Next(visualisation)" reversible="false">
+                        <effect type="fade" start="0" end="100" delay="400" tween="sine" easing="in" time="300" />
+                        <effect type="slide" start="-400" end="0" delay="400" tween="cubic" easing="out" time="600" />
+                    </animation>
+                    <include>GuideNoAnimation</include>
+                    <animation type="Hidden" reversible="false">
+                        <effect type="zoom" start="100" end="115" center="960,360" tween="sine" delay="0" easing="out" time="300" /> 
+                        <effect type="fade" start="100" end="0" tween="cubic" easing="out" delay="0" time="300" />
+                    </animation>
+                    <animation type="WindowClose" reversible="false">
+                        <effect type="fade" start="100" end="0" time="300" tween="sine" easing="out" />
+                        <effect type="zoom" start="100" end="85" time="300" center="960,360" tween="sine" easing="out" />
+                    </animation>
+                    <visible>!Window.IsActive(movieinformation) + !Window.IsActive(script-Actors-DialogInfo.xml) + !Window.IsActive(script-Actors-DialogVideoInfo.xml) + IsEmpty(Window(Home).Property(script.metadata.actors.hasparent)) + Control.IsVisible(54) + !Window.IsActive(favourites)</visible>
+                    <control type="group">
+                        <posx>-492</posx>
+                        <control type="group">
+                            <animation effect="fade" end="50" time="0" condition="true">Conditional</animation>
+                            <control type="image">
+                                <posx>-10</posx>
+                                <posy>625</posy>
+                                <height>50</height>
+                                <width>500</width>
+                                <texture>dialogs/shutdown/shadow.png</texture>
+                            </control>
+                            <control type="image">
+                                <posx>-5</posx>
+                                <posy>265</posy>
+                                <width>490</width>
+                                <height>360</height>
+                                <texture border="7">windows/home/tile-grey.png</texture>
+                                <animation effect="fade" end="60" time="0" condition="true">Conditional</animation>
+                            </control>
+                            <control type="image">
+                                <posx>0</posx>
+                                <posy>270</posy>
+                                <width>480</width>
+                                <height>104</height>
+                                <texture border="2">views/extended/overlay.png</texture>
+                            </control>
+                            <control type="label">
+                                <posx>20</posx>
+                                <posy>288</posy>
+                                <width>440</width>
+                                <label>$INFO[Container(54).ListItem(-1).Label]</label>
+                                <font>Font-Condensed-S34-B</font>
+                                <textcolor>ddwhite</textcolor>
+                                <shadowcolor>22000000</shadowcolor>
+                                <scroll>false</scroll>
+                                <align>left</align>
+                            </control>
+                            <control type="label">
+                                <posx>20</posx>
+                                <posy>329</posy>
+                                <width>440</width>
+                                <label>$INFO[Container(54).ListItem(-1).Rating,★ , [COLOR=44FFFFFF]/[/COLOR] ]$INFO[Container(54).ListItem(-1).Year]$INFO[Container(54).ListItem(-1).Duration, [COLOR=44FFFFFF]/[/COLOR] , $LOCALIZE[12391]]$VAR[LandscapeHDSD3DLabel-1]</label>
+                                <font>Font-Condensed-S32</font>
+                                <textcolor>aawhite</textcolor>
+                                <shadowcolor>22000000</shadowcolor>
+                                <scroll>false</scroll>
+                                <align>left</align>
+                            </control>
+                            <control type="textbox">
+                                <description>Plot</description>
+                                <posx>20</posx>
+                                <posy>379</posy>
+                                <width>440</width>
+                                <height>230</height>
+                                <info>Container(54).ListItem(-1).Plot</info>
+                                <align>justify</align>
+                                <textcolor>99FFFFFF</textcolor>
+                                <shadowcolor>22000000</shadowcolor>
+                                <autoscroll>false</autoscroll>
+                                <font>Font-Condensed-S28</font>
+                            </control>
+                            <control type="image">
+                                <description>Set icon</description>
+                                <posx>133</posx>
+                                <posy>435</posy>
+                                <width>214</width>
+                                <height>120</height>
+                                <texture>flags/other/set-landscape.png</texture>
+                                <visible>substring(Container(54).ListItem(-1).Path,videodb://movies/sets,left)</visible>
+                            </control>
+                        </control>
+                        <control type="image">
+                            <posx>0</posx>
+                            <posy>0</posy>
+                            <width>480</width>
+                            <height>270</height>
+                            <texture background="true">$VAR[ExtendedViewThumb-1]</texture>
+                            <colordiffuse>bbwhite</colordiffuse>
+                            <aspectratio align="center" aligny="center" scalediffuse="false">scale</aspectratio>
+                            <visible>[[Container.Content(tvshows) + !Skin.HasSetting(ExtendedUseClearArt) + !Skin.HasSetting(ExtendedUseClearLogo)] | [Container.Content(movies) + !Skin.HasSetting(ExtendedUseClearMovieArt) + !Skin.HasSetting(ExtendedUseClearMovieLogo)]] | [IsEmpty(Container(54).ListItem(-1).Art(clearart)) + IsEmpty(Container(54).ListItem(-1).Art(clearlogo))]</visible>
+                        </control>
+                        <control type="image">
+                            <posx>0</posx>
+                            <posy>0</posy>
+                            <width>480</width>
+                            <height>270</height>
+                            <texture background="true">$VAR[ExtendedViewLogo-1]</texture>
+                            <colordiffuse>bbwhite</colordiffuse>
+                            <aspectratio align="center" aligny="bottom" scalediffuse="false">keep</aspectratio>
+                            <visible>[[Container.Content(tvshows) + [Skin.HasSetting(ExtendedUseClearArt) | Skin.HasSetting(ExtendedUseClearLogo)]] | [Container.Content(movies) + [Skin.HasSetting(ExtendedUseClearMovieArt) | Skin.HasSetting(ExtendedUseClearMovieLogo)]]] + ![IsEmpty(Container(54).ListItem(-1).Art(clearart)) + IsEmpty(Container(54).ListItem(-1).Art(clearlogo))]</visible>
+                        </control>
+                        <control type="image">
+                            <posx>0</posx>
+                            <posy>269</posy>
+                            <width>480</width>
+                            <height>1</height>
+                            <colordiffuse>99000000</colordiffuse>
+                            <texture>windows/common/black.png</texture>
+                            <visible>[[Container.Content(tvshows) + !Skin.HasSetting(ExtendedUseClearArt) + !Skin.HasSetting(ExtendedUseClearLogo)] | [Container.Content(movies) + !Skin.HasSetting(ExtendedUseClearMovieArt) + !Skin.HasSetting(ExtendedUseClearMovieLogo)]] | [IsEmpty(Container(54).ListItem(-1).Art(clearart)) + IsEmpty(Container(54).ListItem(-1).Art(clearlogo))]</visible>
+                        </control>
+                        <control type="image">
+                            <posx>380</posx>
+                            <posy>0</posy>
+                            <width>100</width>
+                            <height>100</height>
+                            <texture>$VAR[ExtendedOverlay-1]</texture>
+                            <animation effect="slide" end="0,270" time="0" condition="[[Container.Content(tvshows) + [Skin.HasSetting(ExtendedUseClearArt) | Skin.HasSetting(ExtendedUseClearLogo)]] | [Container.Content(movies) + [Skin.HasSetting(ExtendedUseClearMovieArt) | Skin.HasSetting(ExtendedUseClearMovieLogo)]]]">Conditional</animation>
+                        </control>
+                        <visible>!IsEmpty(Container(54).ListItemNoWrap(-1).Label)</visible>
+                    </control>
+                </control>
+                <control type="group">
+                    <animation type="WindowOpen">
+                        <effect type="fade" start="0" end="100" delay="100" tween="sine" easing="in" time="300" />
+                        <effect type="slide" start="1000" end="0" delay="100" tween="cubic" easing="out" time="600" />
+                    </animation>
+                    <animation type="Visible" condition="IsEmpty(Window(home).property(NoAnimation)) + !Window.Next(visualisation)" reversible="false">
+                        <effect type="fade" start="0" end="100" delay="400" tween="sine" easing="in" time="300" />
+                        <effect type="slide" start="1000" end="0" delay="400" tween="cubic" easing="out" time="600" />
+                    </animation>
+                    <include>GuideNoAnimation</include>
+                    <animation type="Hidden" reversible="false">
+                        <effect type="zoom" start="100" end="115" center="960,360" tween="sine" delay="0" easing="out" time="300" /> 
+                        <effect type="fade" start="100" end="0" tween="cubic" easing="out" delay="0" time="300" />
+                    </animation>
+                    <animation type="WindowClose" reversible="false">
+                        <effect type="fade" start="100" end="0" time="300" tween="sine" easing="out" />
+                        <effect type="zoom" start="100" end="85" time="300" center="960,360" tween="sine" easing="out" />
+                    </animation>
+                    <visible>!Window.IsActive(movieinformation) + !Window.IsActive(script-Actors-DialogInfo.xml) + !Window.IsActive(script-Actors-DialogVideoInfo.xml) + IsEmpty(Window(Home).Property(script.metadata.actors.hasparent)) + Control.IsVisible(54) + !Window.IsActive(favourites)</visible>
+                    <control type="group">
+                        <posx>1476</posx>
+                        <control type="group">
+                            <animation effect="fade" end="50" time="0" condition="true">Conditional</animation>
+                            <control type="image">
+                                <posx>-10</posx>
+                                <posy>625</posy>
+                                <height>50</height>
+                                <width>500</width>
+                                <texture>dialogs/shutdown/shadow.png</texture>
+                            </control>
+                            <control type="image">
+                                <posx>-5</posx>
+                                <posy>265</posy>
+                                <width>490</width>
+                                <height>360</height>
+                                <texture border="7">windows/home/tile-grey.png</texture>
+                                <animation effect="fade" end="60" time="0" condition="true">Conditional</animation>
+                            </control>
+                            <control type="image">
+                                <posx>0</posx>
+                                <posy>270</posy>
+                                <width>480</width>
+                                <height>104</height>
+                                <texture border="2">views/extended/overlay.png</texture>
+                            </control>
+                            <control type="label">
+                                <posx>20</posx>
+                                <posy>288</posy>
+                                <width>440</width>
+                                <label>$INFO[Container(54).ListItem(3).Label]</label>
+                                <font>Font-Condensed-S34-B</font>
+                                <textcolor>ddwhite</textcolor>
+                                <shadowcolor>22000000</shadowcolor>
+                                <scroll>false</scroll>
+                                <align>left</align>
+                            </control>
+                            <control type="label">
+                                <posx>20</posx>
+                                <posy>329</posy>
+                                <width>440</width>
+                                <label>$INFO[Container(54).ListItem(3).Rating,★ , [COLOR=44FFFFFF]/[/COLOR] ]$INFO[Container(54).ListItem(3).Year]$INFO[Container(54).ListItem(3).Duration, [COLOR=44FFFFFF]/[/COLOR] , $LOCALIZE[12391]]$VAR[LandscapeHDSD3DLabel3]</label>
+                                <font>Font-Condensed-S32</font>
+                                <textcolor>aawhite</textcolor>
+                                <shadowcolor>22000000</shadowcolor>
+                                <scroll>false</scroll>
+                                <align>left</align>
+                            </control>
+                            <control type="textbox">
+                                <description>Plot</description>
+                                <posx>20</posx>
+                                <posy>379</posy>
+                                <width>440</width>
+                                <height>230</height>
+                                <info>Container(54).ListItem(3).Plot</info>
+                                <align>justify</align>
+                                <textcolor>99FFFFFF</textcolor>
+                                <shadowcolor>22000000</shadowcolor>
+                                <autoscroll>false</autoscroll>
+                                <font>Font-Condensed-S28</font>
+                            </control>
+                            <control type="image">
+                                <description>Set icon</description>
+                                <posx>133</posx>
+                                <posy>435</posy>
+                                <width>214</width>
+                                <height>120</height>
+                                <texture>flags/other/set-landscape.png</texture>
+                                <visible>substring(Container(54).ListItem(3).Path,videodb://movies/sets,left)</visible>
+                            </control>
+                        </control>
+                        <control type="image">
+                            <posx>0</posx>
+                            <posy>0</posy>
+                            <width>480</width>
+                            <height>270</height>
+                            <texture background="true">$VAR[ExtendedViewThumb3]</texture>
+                            <colordiffuse>bbwhite</colordiffuse>
+                            <aspectratio align="center" aligny="center" scalediffuse="false">scale</aspectratio>
+                            <visible>[[Container.Content(tvshows) + !Skin.HasSetting(ExtendedUseClearArt) + !Skin.HasSetting(ExtendedUseClearLogo)] | [Container.Content(movies) + !Skin.HasSetting(ExtendedUseClearMovieArt) + !Skin.HasSetting(ExtendedUseClearMovieLogo)]] | [IsEmpty(Container(54).ListItem(3).Art(clearart)) + IsEmpty(Container(54).ListItem(3).Art(clearlogo))]</visible>
+                        </control>
+                        <control type="image">
+                            <posx>0</posx>
+                            <posy>0</posy>
+                            <width>480</width>
+                            <height>270</height>
+                            <texture background="true">$VAR[ExtendedViewLogo3]</texture>
+                            <colordiffuse>bbwhite</colordiffuse>
+                            <aspectratio align="center" aligny="bottom" scalediffuse="false">keep</aspectratio>
+                            <visible>[[Container.Content(tvshows) + [Skin.HasSetting(ExtendedUseClearArt) | Skin.HasSetting(ExtendedUseClearLogo)]] | [Container.Content(movies) + [Skin.HasSetting(ExtendedUseClearMovieArt) | Skin.HasSetting(ExtendedUseClearMovieLogo)]]] + ![IsEmpty(Container(54).ListItem(3).Art(clearart)) + IsEmpty(Container(54).ListItem(3).Art(clearlogo))]</visible>
+                        </control>
+                        <control type="image">
+                            <posx>0</posx>
+                            <posy>269</posy>
+                            <width>480</width>
+                            <height>1</height>
+                            <colordiffuse>99000000</colordiffuse>
+                            <texture>windows/common/black.png</texture>
+                            <visible>[[Container.Content(tvshows) + !Skin.HasSetting(ExtendedUseClearArt) + !Skin.HasSetting(ExtendedUseClearLogo)] | [Container.Content(movies) + !Skin.HasSetting(ExtendedUseClearMovieArt) + !Skin.HasSetting(ExtendedUseClearMovieLogo)]] | [IsEmpty(Container(54).ListItem(3).Art(clearart)) + IsEmpty(Container(54).ListItem(3).Art(clearlogo))]</visible>
+                        </control>
+                        <control type="image">
+                            <posx>380</posx>
+                            <posy>0</posy>
+                            <width>100</width>
+                            <height>100</height>
+                            <texture>$VAR[ExtendedOverlay3]</texture>
+                            <animation effect="slide" end="0,270" time="0" condition="[[Container.Content(tvshows) + [Skin.HasSetting(ExtendedUseClearArt) | Skin.HasSetting(ExtendedUseClearLogo)]] | [Container.Content(movies) + [Skin.HasSetting(ExtendedUseClearMovieArt) | Skin.HasSetting(ExtendedUseClearMovieLogo)]]]">Conditional</animation>
+                        </control>
+                        <visible>!IsEmpty(Container(54).ListItemNoWrap(3).Label)</visible>
+                    </control>
+                </control>
+                <control type="group">
+                    <animation type="WindowOpen">
+                        <effect type="fade" start="0" end="100" delay="100" tween="sine" easing="in" time="300" />
+                        <effect type="slide" start="700" end="0" delay="100" tween="cubic" easing="out" time="600" />
+                    </animation>
+                    <animation type="Visible" condition="IsEmpty(Window(home).property(NoAnimation)) + !Window.Next(visualisation)" reversible="false">
+                        <effect type="fade" start="0" end="100" delay="400" tween="sine" easing="in" time="300" />
+                        <effect type="slide" start="700" end="0" delay="400" tween="cubic" easing="out" time="600" />
+                    </animation>
+                    <include>GuideNoAnimation</include>
+                    <animation type="Hidden" reversible="false">
+                        <effect type="zoom" start="100" end="115" center="960,360" tween="sine" delay="0" easing="out" time="300" /> 
+                        <effect type="fade" start="100" end="0" tween="cubic" easing="out" delay="0" time="300" />
+                    </animation>
+                    <animation type="WindowClose" reversible="false">
+                        <effect type="fade" start="100" end="0" time="300" tween="sine" easing="out" />
+                        <effect type="zoom" start="100" end="85" time="300" center="960,360" tween="sine" easing="out" />
+                    </animation>
+                    <visible>!Window.IsActive(movieinformation) + !Window.IsActive(script-Actors-DialogInfo.xml) + !Window.IsActive(script-Actors-DialogVideoInfo.xml) + IsEmpty(Window(Home).Property(script.metadata.actors.hasparent)) + Control.IsVisible(54) + !Window.IsActive(favourites)</visible>
+                    <control type="group">
+                        <posx>984</posx>
+                        <control type="group">
+                            <animation effect="fade" end="50" time="0" condition="true">Conditional</animation>
+                            <control type="image">
+                                <posx>-10</posx>
+                                <posy>625</posy>
+                                <height>50</height>
+                                <width>500</width>
+                                <texture>dialogs/shutdown/shadow.png</texture>
+                            </control>
+                            <control type="image">
+                                <posx>-5</posx>
+                                <posy>265</posy>
+                                <width>490</width>
+                                <height>360</height>
+                                <texture border="7">windows/home/tile-grey.png</texture>
+                                <animation effect="fade" end="60" time="0" condition="true">Conditional</animation>
+                            </control>
+                            <control type="image">
+                                <posx>0</posx>
+                                <posy>270</posy>
+                                <width>480</width>
+                                <height>104</height>
+                                <texture border="2">views/extended/overlay.png</texture>
+                            </control>
+                            <control type="label">
+                                <posx>20</posx>
+                                <posy>288</posy>
+                                <width>440</width>
+                                <label>$INFO[Container(54).ListItem(2).Label]</label>
+                                <font>Font-Condensed-S34-B</font>
+                                <textcolor>ddwhite</textcolor>
+                                <shadowcolor>22000000</shadowcolor>
+                                <scroll>false</scroll>
+                                <align>left</align>
+                            </control>
+                            <control type="label">
+                                <posx>20</posx>
+                                <posy>329</posy>
+                                <width>440</width>
+                                <label>$INFO[Container(54).ListItem(2).Rating,★ , [COLOR=44FFFFFF]/[/COLOR] ]$INFO[Container(54).ListItem(2).Year]$INFO[Container(54).ListItem(2).Duration, [COLOR=44FFFFFF]/[/COLOR] , $LOCALIZE[12391]]$VAR[LandscapeHDSD3DLabel2]</label>
+                                <font>Font-Condensed-S32</font>
+                                <textcolor>aawhite</textcolor>
+                                <shadowcolor>22000000</shadowcolor>
+                                <scroll>false</scroll>
+                                <align>left</align>
+                            </control>
+                            <control type="textbox">
+                                <description>Plot</description>
+                                <posx>20</posx>
+                                <posy>379</posy>
+                                <width>440</width>
+                                <height>230</height>
+                                <info>Container(54).ListItem(2).Plot</info>
+                                <align>justify</align>
+                                <textcolor>99FFFFFF</textcolor>
+                                <shadowcolor>22000000</shadowcolor>
+                                <autoscroll>false</autoscroll>
+                                <font>Font-Condensed-S28</font>
+                            </control>
+                            <control type="image">
+                                <description>Set icon</description>
+                                <posx>133</posx>
+                                <posy>435</posy>
+                                <width>214</width>
+                                <height>120</height>
+                                <texture>flags/other/set-landscape.png</texture>
+                                <visible>substring(Container(54).ListItem(2).Path,videodb://movies/sets,left)</visible>
+                            </control>
+                        </control>
+                        <control type="image">
+                            <posx>0</posx>
+                            <posy>0</posy>
+                            <width>480</width>
+                            <height>270</height>
+                            <texture background="true">$VAR[ExtendedViewThumb2]</texture>
+                            <colordiffuse>bbwhite</colordiffuse>
+                            <aspectratio align="center" aligny="center" scalediffuse="false">scale</aspectratio>
+                            <visible>[[Container.Content(tvshows) + !Skin.HasSetting(ExtendedUseClearArt) + !Skin.HasSetting(ExtendedUseClearLogo)] | [Container.Content(movies) + !Skin.HasSetting(ExtendedUseClearMovieArt) + !Skin.HasSetting(ExtendedUseClearMovieLogo)]] | [IsEmpty(Container(54).ListItem(2).Art(clearart)) + IsEmpty(Container(54).ListItem(2).Art(clearlogo))]</visible>
+                        </control>
+                        <control type="image">
+                            <posx>0</posx>
+                            <posy>0</posy>
+                            <width>480</width>
+                            <height>270</height>
+                            <texture background="true">$VAR[ExtendedViewLogo2]</texture>
+                            <colordiffuse>bbwhite</colordiffuse>
+                            <aspectratio align="center" aligny="bottom" scalediffuse="false">keep</aspectratio>
+                            <visible>[[Container.Content(tvshows) + [Skin.HasSetting(ExtendedUseClearArt) | Skin.HasSetting(ExtendedUseClearLogo)]] | [Container.Content(movies) + [Skin.HasSetting(ExtendedUseClearMovieArt) | Skin.HasSetting(ExtendedUseClearMovieLogo)]]] + ![IsEmpty(Container(54).ListItem(2).Art(clearart)) + IsEmpty(Container(54).ListItem(2).Art(clearlogo))]</visible>
+                        </control>
+                        <control type="image">
+                            <posx>0</posx>
+                            <posy>269</posy>
+                            <width>480</width>
+                            <height>1</height>
+                            <colordiffuse>99000000</colordiffuse>
+                            <texture>windows/common/black.png</texture>
+                            <visible>[[Container.Content(tvshows) + !Skin.HasSetting(ExtendedUseClearArt) + !Skin.HasSetting(ExtendedUseClearLogo)] | [Container.Content(movies) + !Skin.HasSetting(ExtendedUseClearMovieArt) + !Skin.HasSetting(ExtendedUseClearMovieLogo)]] | [IsEmpty(Container(54).ListItem(2).Art(clearart)) + IsEmpty(Container(54).ListItem(2).Art(clearlogo))]</visible>
+                        </control>
+                        <control type="image">
+                            <posx>380</posx>
+                            <posy>0</posy>
+                            <width>100</width>
+                            <height>100</height>
+                            <texture>$VAR[ExtendedOverlay2]</texture>
+                            <animation effect="slide" end="0,270" time="0" condition="[[Container.Content(tvshows) + [Skin.HasSetting(ExtendedUseClearArt) | Skin.HasSetting(ExtendedUseClearLogo)]] | [Container.Content(movies) + [Skin.HasSetting(ExtendedUseClearMovieArt) | Skin.HasSetting(ExtendedUseClearMovieLogo)]]]">Conditional</animation>
+                        </control>
+                        <visible>!IsEmpty(Container(54).ListItemNoWrap(2).Label)</visible>
+                    </control>
+                </control>
+                <control type="group">
+                    <animation type="WindowOpen">
+                        <effect type="fade" start="0" end="100" delay="100" tween="sine" easing="in" time="300" />
+                        <effect type="slide" start="400" end="0" delay="100" tween="cubic" easing="out" time="600" />
+                    </animation>
+                    <animation type="Visible" condition="IsEmpty(Window(home).property(NoAnimation)) + !Window.Next(visualisation)" reversible="false">
+                        <effect type="fade" start="0" end="100" delay="400" tween="sine" easing="in" time="300" />
+                        <effect type="slide" start="400" end="0" delay="400" tween="cubic" easing="out" time="600" />
+                    </animation>
+                    <include>GuideNoAnimation</include>
+                    <animation type="Hidden" reversible="false">
+                        <effect type="zoom" start="100" end="115" center="960,360" tween="sine" delay="0" easing="out" time="300" /> 
+                        <effect type="fade" start="100" end="0" tween="cubic" easing="out" delay="0" time="300" />
+                    </animation>
+                    <animation type="WindowClose" reversible="false">
+                        <effect type="fade" start="100" end="0" time="300" tween="sine" easing="out" />
+                        <effect type="zoom" start="100" end="85" time="300" center="960,360" tween="sine" easing="out" />
+                    </animation>
+                    <visible>!Window.IsActive(movieinformation) + !Window.IsActive(script-Actors-DialogInfo.xml) + !Window.IsActive(script-Actors-DialogVideoInfo.xml) + IsEmpty(Window(Home).Property(script.metadata.actors.hasparent)) + Control.IsVisible(54) + !Window.IsActive(favourites)</visible>
+                    <control type="group">
+                        <posx>492</posx>
+                        <control type="group">
+                            <animation effect="fade" end="50" time="0" condition="true">Conditional</animation>
+                            <control type="image">
+                                <posx>-10</posx>
+                                <posy>625</posy>
+                                <height>50</height>
+                                <width>500</width>
+                                <texture>dialogs/shutdown/shadow.png</texture>
+                            </control>
+                            <control type="image">
+                                <posx>-5</posx>
+                                <posy>265</posy>
+                                <width>490</width>
+                                <height>360</height>
+                                <texture border="7">windows/home/tile-grey.png</texture>
+                                <animation effect="fade" end="60" time="0" condition="true">Conditional</animation>
+                            </control>
+                            <control type="image">
+                                <posx>0</posx>
+                                <posy>270</posy>
+                                <width>480</width>
+                                <height>104</height>
+                                <texture border="2">views/extended/overlay.png</texture>
+                            </control>
+                            <control type="label">
+                                <posx>20</posx>
+                                <posy>288</posy>
+                                <width>440</width>
+                                <label>$INFO[Container(54).ListItem(1).Label]</label>
+                                <font>Font-Condensed-S34-B</font>
+                                <textcolor>ddwhite</textcolor>
+                                <shadowcolor>22000000</shadowcolor>
+                                <scroll>false</scroll>
+                                <align>left</align>
+                            </control>
+                            <control type="label">
+                                <posx>20</posx>
+                                <posy>329</posy>
+                                <width>440</width>
+                                <label>$INFO[Container(54).ListItem(1).Rating,★ , [COLOR=44FFFFFF]/[/COLOR] ]$INFO[Container(54).ListItem(1).Year]$INFO[Container(54).ListItem(1).Duration, [COLOR=44FFFFFF]/[/COLOR] , $LOCALIZE[12391]]$VAR[LandscapeHDSD3DLabel1]</label>
+                                <font>Font-Condensed-S32</font>
+                                <textcolor>aawhite</textcolor>
+                                <shadowcolor>22000000</shadowcolor>
+                                <scroll>false</scroll>
+                                <align>left</align>
+                            </control>
+                            <control type="textbox">
+                                <description>Plot</description>
+                                <posx>20</posx>
+                                <posy>379</posy>
+                                <width>440</width>
+                                <height>230</height>
+                                <info>Container(54).ListItem(1).Plot</info>
+                                <align>justify</align>
+                                <textcolor>99FFFFFF</textcolor>
+                                <shadowcolor>22000000</shadowcolor>
+                                <autoscroll>false</autoscroll>
+                                <font>Font-Condensed-S28</font>
+                            </control>
+                            <control type="image">
+                                <description>Set icon</description>
+                                <posx>133</posx>
+                                <posy>435</posy>
+                                <width>214</width>
+                                <height>120</height>
+                                <texture>flags/other/set-landscape.png</texture>
+                                <visible>substring(Container(54).ListItem(1).Path,videodb://movies/sets,left)</visible>
+                            </control>
+                        </control>
+                        <control type="image">
+                            <posx>0</posx>
+                            <posy>0</posy>
+                            <width>480</width>
+                            <height>270</height>
+                            <texture background="true">$VAR[ExtendedViewThumb1]</texture>
+                            <colordiffuse>bbwhite</colordiffuse>
+                            <aspectratio align="center" aligny="center" scalediffuse="false">scale</aspectratio>
+                            <visible>[[Container.Content(tvshows) + !Skin.HasSetting(ExtendedUseClearArt) + !Skin.HasSetting(ExtendedUseClearLogo)] | [Container.Content(movies) + !Skin.HasSetting(ExtendedUseClearMovieArt) + !Skin.HasSetting(ExtendedUseClearMovieLogo)]] | [IsEmpty(Container(54).ListItem(1).Art(clearart)) + IsEmpty(Container(54).ListItem(1).Art(clearlogo))]</visible>
+                        </control>
+                        <control type="image">
+                            <posx>0</posx>
+                            <posy>0</posy>
+                            <width>480</width>
+                            <height>270</height>
+                            <texture background="true">$VAR[ExtendedViewLogo1]</texture>
+                            <colordiffuse>bbwhite</colordiffuse>
+                            <aspectratio align="center" aligny="bottom" scalediffuse="false">keep</aspectratio>
+                            <visible>[[Container.Content(tvshows) + [Skin.HasSetting(ExtendedUseClearArt) | Skin.HasSetting(ExtendedUseClearLogo)]] | [Container.Content(movies) + [Skin.HasSetting(ExtendedUseClearMovieArt) | Skin.HasSetting(ExtendedUseClearMovieLogo)]]] + ![IsEmpty(Container(54).ListItem(1).Art(clearart)) + IsEmpty(Container(54).ListItem(1).Art(clearlogo))]</visible>
+                        </control>
+                        <control type="image">
+                            <posx>0</posx>
+                            <posy>269</posy>
+                            <width>480</width>
+                            <height>1</height>
+                            <colordiffuse>99000000</colordiffuse>
+                            <texture>windows/common/black.png</texture>
+                            <visible>[[Container.Content(tvshows) + !Skin.HasSetting(ExtendedUseClearArt) + !Skin.HasSetting(ExtendedUseClearLogo)] | [Container.Content(movies) + !Skin.HasSetting(ExtendedUseClearMovieArt) + !Skin.HasSetting(ExtendedUseClearMovieLogo)]] | [IsEmpty(Container(54).ListItem(1).Art(clearart)) + IsEmpty(Container(54).ListItem(1).Art(clearlogo))]</visible>
+                        </control>
+                        <control type="image">
+                            <posx>380</posx>
+                            <posy>0</posy>
+                            <width>100</width>
+                            <height>100</height>
+                            <texture>$VAR[ExtendedOverlay1]</texture>
+                            <animation effect="slide" end="0,270" time="0" condition="[[Container.Content(tvshows) + [Skin.HasSetting(ExtendedUseClearArt) | Skin.HasSetting(ExtendedUseClearLogo)]] | [Container.Content(movies) + [Skin.HasSetting(ExtendedUseClearMovieArt) | Skin.HasSetting(ExtendedUseClearMovieLogo)]]]">Conditional</animation>
+                        </control>
+                        <visible>!IsEmpty(Container(54).ListItemNoWrap(1).Label)</visible>
+                    </control>
+                </control>
+                <control type="group">
+                    <animation type="WindowOpen">
+                        <effect type="slide" start="200" end="0" tween="cubic" easing="out" time="700" />
+                        <effect type="fade" start="0" end="100" tween="sine" easing="inout" time="300" />
+                        <effect type="zoom" start="94.7368421" end="100" center="400,301" tween="cubic" easing="out" time="400" />
+                    </animation>
+                    <animation type="Visible" condition="IsEmpty(Window(home).property(NoAnimation)) + !Window.Next(visualisation)" reversible="false">
+                        <effect type="slide" start="200" end="0" tween="cubic" easing="out" time="700" delay="300" />
+                        <effect type="fade" start="0" end="100" tween="sine" easing="inout" time="300" delay="300" />
+                        <effect type="zoom" start="94.7368421" end="100" center="400,301" tween="cubic" easing="out" time="400" delay="300" />
+                    </animation>
+                    <include>GuideNoAnimation</include>
+                    <animation type="Hidden" reversible="false">
+                        <effect type="zoom" start="100" end="115" center="960,360" tween="sine" delay="0" easing="out" time="300" /> 
+                        <effect type="fade" start="100" end="0" tween="cubic" easing="out" delay="0" time="300" />
+                    </animation>
+                    <animation type="WindowClose" reversible="false">
+                        <effect type="fade" start="100" end="0" time="300" tween="sine" easing="out" />
+                        <effect type="zoom" start="100" end="85" time="300" center="960,360" tween="sine" easing="out" />
+                    </animation>
+                    <visible>!Window.IsActive(movieinformation) + !Window.IsActive(script-Actors-DialogInfo.xml) + !Window.IsActive(script-Actors-DialogVideoInfo.xml) + IsEmpty(Window(Home).Property(script.metadata.actors.hasparent)) + Control.IsVisible(54) + !Window.IsActive(favourites)</visible>
+                    <control type="image">
+                        <posx>-10</posx>
+                        <posy>625</posy>
+                        <height>50</height>
+                        <width>500</width>
+                        <texture>dialogs/shutdown/shadow.png</texture>
+                    </control>
+                    <control type="image">
+                        <posx>-5</posx>
+                        <posy>265</posy>
+                        <width>490</width>
+                        <height>360</height>
+                        <texture border="7">windows/home/tile-grey.png</texture>
+                    </control>
+                    <control type="image">
+                        <posx>0</posx>
+                        <posy>270</posy>
+                        <width>480</width>
+                        <height>104</height>
+                        <texture border="2">views/extended/overlay.png</texture>
+                    </control>
+                    <control type="label">
+                        <posx>20</posx>
+                        <posy>288</posy>
+                        <width>440</width>
+                        <label>$INFO[Container(54).ListItem(0).Label]</label>
+                        <font>Font-Condensed-S34-B</font>
+                        <textcolor>ddwhite</textcolor>
+                        <shadowcolor>22000000</shadowcolor>
+                        <scroll>false</scroll>
+                        <align>left</align>
+                    </control>
+                    <control type="label">
+                        <posx>20</posx>
+                        <posy>329</posy>
+                        <width>440</width>
+                        <label>$INFO[Container(54).ListItem(0).Rating,★ , [COLOR=44FFFFFF]/[/COLOR] ]$INFO[Container(54).ListItem(0).Year]$INFO[Container(54).ListItem(0).Duration, [COLOR=44FFFFFF]/[/COLOR] , $LOCALIZE[12391]]$VAR[LandscapeHDSD3DLabel0]</label>
+                        <font>Font-Condensed-S32</font>
+                        <textcolor>aawhite</textcolor>
+                        <shadowcolor>22000000</shadowcolor>
+                        <scroll>false</scroll>
+                        <align>left</align>
+                    </control>
+                    <control type="textbox">
+                        <description>Plot</description>
+                        <posx>20</posx>
+                        <posy>379</posy>
+                        <width>440</width>
+                        <height>230</height>
+                        <info>Container(54).ListItem(0).Plot</info>
+                        <align>justify</align>
+                        <textcolor>99FFFFFF</textcolor>
+                        <shadowcolor>22000000</shadowcolor>
+                        <autoscroll>false</autoscroll>
+                        <font>Font-Condensed-S28</font>
+                    </control>
+                    <control type="image">
+                        <description>Set icon</description>
+                        <posx>133</posx>
+                        <posy>435</posy>
+                        <width>214</width>
+                        <height>120</height>
+                        <texture>flags/other/set-landscape.png</texture>
+                        <visible>substring(Container(54).ListItem(0).Path,videodb://movies/sets,left)</visible>
+                    </control>
+                    <control type="image">
+                        <posx>0</posx>
+                        <posy>0</posy>
+                        <width>480</width>
+                        <height>270</height>
+                        <texture background="true">$VAR[ExtendedViewThumb0]</texture>
+                        <aspectratio align="center" aligny="center" scalediffuse="false">scale</aspectratio>
+                        <visible>[[Container.Content(tvshows) + !Skin.HasSetting(ExtendedUseClearArt) + !Skin.HasSetting(ExtendedUseClearLogo)] | [Container.Content(movies) + !Skin.HasSetting(ExtendedUseClearMovieArt) + !Skin.HasSetting(ExtendedUseClearMovieLogo)]] | [IsEmpty(Container(54).ListItem(0).Art(clearart)) + IsEmpty(Container(54).ListItem(0).Art(clearlogo))]</visible>
+                    </control>
+                    <control type="image">
+                        <posx>0</posx>
+                        <posy>0</posy>
+                        <width>480</width>
+                        <height>270</height>
+                        <texture background="true">$VAR[ExtendedViewLogo0]</texture>
+                        <aspectratio align="center" aligny="bottom" scalediffuse="false">keep</aspectratio>
+                        <visible>[[Container.Content(tvshows) + [Skin.HasSetting(ExtendedUseClearArt) | Skin.HasSetting(ExtendedUseClearLogo)]] | [Container.Content(movies) + [Skin.HasSetting(ExtendedUseClearMovieArt) | Skin.HasSetting(ExtendedUseClearMovieLogo)]]] + ![IsEmpty(Container(54).ListItem(0).Art(clearart)) + IsEmpty(Container(54).ListItem(0).Art(clearlogo))]</visible>
+                    </control>
+                    <control type="image">
+                        <posx>0</posx>
+                        <posy>269</posy>
+                        <width>480</width>
+                        <height>1</height>
+                        <colordiffuse>D1000000</colordiffuse>
+                        <texture>windows/common/black.png</texture>
+                        <visible>[[Container.Content(tvshows) + !Skin.HasSetting(ExtendedUseClearArt) + !Skin.HasSetting(ExtendedUseClearLogo)] | [Container.Content(movies) + !Skin.HasSetting(ExtendedUseClearMovieArt) + !Skin.HasSetting(ExtendedUseClearMovieLogo)]] | [IsEmpty(Container(54).ListItem(0).Art(clearart)) + IsEmpty(Container(54).ListItem(0).Art(clearlogo))]</visible>
+                    </control>
+                    <control type="image">
+                        <posx>380</posx>
+                        <posy>0</posy>
+                        <width>100</width>
+                        <height>100</height>
+                        <texture>$VAR[ExtendedOverlay0]</texture>
+                        <animation effect="slide" end="0,270" time="0" condition="[[Container.Content(tvshows) + [Skin.HasSetting(ExtendedUseClearArt) | Skin.HasSetting(ExtendedUseClearLogo)]] | [Container.Content(movies) + [Skin.HasSetting(ExtendedUseClearMovieArt) | Skin.HasSetting(ExtendedUseClearMovieLogo)]]]">Conditional</animation>
+                    </control>
+                </control>
+            </control>
 
+            <control type="group">      
+                <visible>!Window.IsActive(movieinformation) + !Window.IsActive(script-Actors-DialogInfo.xml) + !Window.IsActive(script-Actors-DialogVideoInfo.xml) + IsEmpty(Window(Home).Property(script.metadata.actors.hasparent)) + Control.IsVisible(54) + !Window.IsActive(favourites)</visible>
+                <animation effect="fade" start="100" end="0" time="0" reversible="false">Hidden</animation>
+                <animation effect="fade" start="0" end="100" time="0" delay="1000" reversible="false">Visible</animation>                           
+                <control type="fixedlist" id="54">
+                    <visible>Container.Content(Movies) | Container.Content(TVShows) | Container.Content(Episodes) | Container.Content(Sets)</visible>
+                    <posx>-392</posx>
+                    <posy>260</posy>
+                    <width>2500</width>
+                    <height>830</height>
+                    <pagecontrol>70</pagecontrol>
+                    <scrolltime tween="cubic" easing="out">500</scrolltime>
+                    <orientation>horizontal</orientation>
+                    <viewtype label="42226">list</viewtype>
+                    <onleft>54</onleft>
+                    <onright>54</onright>
+                    <onup condition="!Skin.HasSetting(KioskMode)">9010</onup>
+                    <onup condition="Skin.HasSetting(KioskMode)">54</onup>
+                    <ondown>70</ondown>
+                    <focusposition>1</focusposition>
+                    <preloaditems>2</preloaditems>
+                    <animation type="WindowOpen" reversible="false">
+                        <effect type="fade" start="0" end="100" time="0" />
+                        <effect type="slide" start="0,-1500" end="0,0" delay="700" time="0" />
+                    </animation>
+                    <animation type="WindowClose" reversible="false">
+                        <effect type="fade" start="100" end="0" time="0" />
+                    </animation>
+                    <itemlayout width="492">
+                        <control type="group">
+                            <animation effect="fade" end="50" time="0" condition="true">Conditional</animation>
+                            <control type="image">
+                                <posx>-10</posx>
+                                <posy>625</posy>
+                                <height>50</height>
+                                <width>500</width>
+                                <texture>dialogs/shutdown/shadow.png</texture>
+                            </control>
+                            <control type="image">
+                                <posx>-5</posx>
+                                <posy>265</posy>
+                                <width>490</width>
+                                <height>360</height>
+                                <texture border="7">windows/home/tile-grey.png</texture>
+                                <animation effect="fade" end="60" time="0" condition="true">Conditional</animation>
+                            </control>
+                            <control type="image">
+                                <posx>0</posx>
+                                <posy>270</posy>
+                                <width>480</width>
+                                <height>104</height>
+                                <texture border="2">views/extended/overlay.png</texture>
+                            </control>
+                            <control type="label">
+                                <posx>20</posx>
+                                <posy>288</posy>
+                                <width>440</width>
+                                <label>$INFO[ListItem.Label]</label>
+                                <font>Font-Condensed-S34-B</font>
+                                <textcolor>ddwhite</textcolor>
+                                <shadowcolor>22000000</shadowcolor>
+                                <scroll>false</scroll>
+                                <align>left</align>
+                            </control>
+                            <control type="label">
+                                <posx>20</posx>
+                                <posy>329</posy>
+                                <width>440</width>
+                                <label>$INFO[ListItem.Rating,★ , [COLOR=44FFFFFF]/[/COLOR] ]$INFO[ListItem.Year]$INFO[ListItem.Duration, [COLOR=44FFFFFF]/[/COLOR] , $LOCALIZE[12391]]$VAR[LandscapeHDSD3DLabel]</label>
+                                <font>Font-Condensed-S32</font>
+                                <textcolor>aawhite</textcolor>
+                                <shadowcolor>22000000</shadowcolor>
+                                <scroll>false</scroll>
+                                <align>left</align>
+                            </control>
+                            <control type="textbox">
+                                <description>Plot</description>
+                                <posx>20</posx>
+                                <posy>379</posy>
+                                <width>440</width>
+                                <height>230</height>
+                                <info>ListItem.Plot</info>
+                                <align>justify</align>
+                                <textcolor>99FFFFFF</textcolor>
+                                <shadowcolor>22000000</shadowcolor>
+                                <autoscroll>false</autoscroll>
+                                <font>Font-Condensed-S28</font>
+                            </control>
+                            <control type="image">
+                                <description>Set icon</description>
+                                <posx>133</posx>
+                                <posy>435</posy>
+                                <width>214</width>
+                                <height>120</height>
+                                <texture>flags/other/set-landscape.png</texture>
+                                <visible>substring(ListItem.Path,videodb://movies/sets,left)</visible>
+                            </control>
+                        </control>
+                        <control type="image">
+                            <posx>0</posx>
+                            <posy>0</posy>
+                            <width>480</width>
+                            <height>270</height>
+                            <texture background="true">$VAR[ExtendedViewThumb]</texture>
+                            <colordiffuse>bbwhite</colordiffuse>
+                            <aspectratio align="center" aligny="center" scalediffuse="false">scale</aspectratio>
+                            <visible>[[Container.Content(tvshows) + !Skin.HasSetting(ExtendedUseClearArt) + !Skin.HasSetting(ExtendedUseClearLogo)] | [Container.Content(movies) + !Skin.HasSetting(ExtendedUseClearMovieArt) + !Skin.HasSetting(ExtendedUseClearMovieLogo)]] | [IsEmpty(ListItem.Art(clearart)) + IsEmpty(ListItem.Art(clearlogo))]</visible>
+                        </control>
+                        <control type="image">
+                            <posx>0</posx>
+                            <posy>0</posy>
+                            <width>480</width>
+                            <height>270</height>
+                            <texture background="true">$VAR[ExtendedViewLogo]</texture>
+                            <colordiffuse>bbwhite</colordiffuse>
+                            <aspectratio align="center" aligny="bottom" scalediffuse="false">keep</aspectratio>
+                            <visible>[[Container.Content(tvshows) + [Skin.HasSetting(ExtendedUseClearArt) | Skin.HasSetting(ExtendedUseClearLogo)]] | [Container.Content(movies) + [Skin.HasSetting(ExtendedUseClearMovieArt) | Skin.HasSetting(ExtendedUseClearMovieLogo)]]] + ![IsEmpty(ListItem.Art(clearart)) + IsEmpty(ListItem.Art(clearlogo))]</visible>
+                        </control>
+                        <control type="image">
+                            <posx>380</posx>
+                            <posy>0</posy>
+                            <width>100</width>
+                            <height>100</height>
+                            <texture>$VAR[ExtendedOverlay]</texture>
+                            <animation effect="slide" end="0,270" time="0" condition="[[Container.Content(tvshows) + [Skin.HasSetting(ExtendedUseClearArt) | Skin.HasSetting(ExtendedUseClearLogo)]] | [Container.Content(movies) + [Skin.HasSetting(ExtendedUseClearMovieArt) | Skin.HasSetting(ExtendedUseClearMovieLogo)]]]">Conditional</animation>
+                        </control>
+                        <control type="image">
+                            <posx>0</posx>
+                            <posy>269</posy>
+                            <width>480</width>
+                            <height>1</height>
+                            <colordiffuse>99000000</colordiffuse>
+                            <texture>windows/common/black.png</texture>
+                            <visible>[[Container.Content(tvshows) + !Skin.HasSetting(ExtendedUseClearArt) + !Skin.HasSetting(ExtendedUseClearLogo)] | [Container.Content(movies) + !Skin.HasSetting(ExtendedUseClearMovieArt) + !Skin.HasSetting(ExtendedUseClearMovieLogo)]] | [IsEmpty(ListItem.Art(clearart)) + IsEmpty(ListItem.Art(clearlogo))]</visible>
+                        </control>
+                    </itemlayout>
+                    <focusedlayout width="492">
+                        <control type="group">
+                            <animation type="Focus" condition="Container(54).OnNext | Container(54).OnPrevious">
+                                <effect type="fade" start="50" end="100" time="300" tween="sine" easing="inout" />
+                            </animation>
+                            <animation type="Unfocus" condition="Container(54).OnNext | Container(54).OnPrevious">
+                                <effect type="fade" start="100" end="50" time="300" tween="sine" easing="inout" />
+                            </animation>
+                            <control type="image">
+                                <posx>-10</posx>
+                                <posy>625</posy>
+                                <height>50</height>
+                                <width>500</width>
+                                <texture>dialogs/shutdown/shadow.png</texture>
+                            </control>
+                            <control type="group">
+                                <animation type="Focus" condition="Container(54).OnNext | Container(54).OnPrevious">
+                                    <effect type="fade" start="60" end="100" time="300" tween="sine" easing="inout" />
+                                </animation>
+                                <animation type="Unfocus" condition="Container(54).OnNext | Container(54).OnPrevious">
+                                    <effect type="fade" start="100" end="60" time="300" tween="sine" easing="inout" />
+                                </animation>
+                                <control type="image">
+                                    <posx>-5</posx>
+                                    <posy>265</posy>
+                                    <width>490</width>
+                                    <height>360</height>
+                                    <texture border="7">windows/home/tile-grey.png</texture>
+                                </control>
+                            </control>
+                            <control type="image">
+                                <posx>0</posx>
+                                <posy>270</posy>
+                                <width>480</width>
+                                <height>104</height>
+                                <texture border="2">views/extended/overlay.png</texture>
+                            </control>
+                            <control type="label">
+                                <posx>20</posx>
+                                <posy>288</posy>
+                                <width>440</width>
+                                <label>$INFO[ListItem.Label]</label>
+                                <font>Font-Condensed-S34-B</font>
+                                <textcolor>ddwhite</textcolor>
+                                <shadowcolor>22000000</shadowcolor>
+                                <scroll>false</scroll>
+                                <align>left</align>
+                            </control>
+                            <control type="label">
+                                <posx>20</posx>
+                                <posy>329</posy>
+                                <width>440</width>
+                                <label>$INFO[ListItem.Rating,★ , [COLOR=44FFFFFF]/[/COLOR] ]$INFO[ListItem.Year]$INFO[ListItem.Duration, [COLOR=44FFFFFF]/[/COLOR] , $LOCALIZE[12391]]$VAR[LandscapeHDSD3DLabel]</label>
+                                <font>Font-Condensed-S32</font>
+                                <textcolor>aawhite</textcolor>
+                                <shadowcolor>22000000</shadowcolor>
+                                <scroll>false</scroll>
+                                <align>left</align>
+                            </control>
+                            <control type="textbox">
+                                <description>Plot</description>
+                                <posx>20</posx>
+                                <posy>379</posy>
+                                <width>440</width>
+                                <height>230</height>
+                                <info>ListItem.Plot</info>
+                                <align>justify</align>
+                                <textcolor>99FFFFFF</textcolor>
+                                <shadowcolor>22000000</shadowcolor>
+                                <autoscroll delay="13000" time="3000" repeat="13000">!Skin.HasSetting(AutoScroll.Disable)</autoscroll>
+                                <font>Font-Condensed-S28</font>
+                            </control>
+                            <control type="image">
+                                <description>Set icon</description>
+                                <posx>133</posx>
+                                <posy>435</posy>
+                                <width>214</width>
+                                <height>120</height>
+                                <texture>flags/other/set-landscape.png</texture>
+                                <visible>substring(ListItem.Path,videodb://movies/sets,left)</visible>
+                            </control>
+                        </control>
+                        <control type="group">
+                            <animation type="Focus" condition="Container(54).OnNext | Container(54).OnPrevious">
+                                <effect type="fade" start="73.4" end="100" time="300" tween="sine" easing="inout" />
+                            </animation>
+                            <animation type="Unfocus" condition="Container(54).OnNext | Container(54).OnPrevious">
+                                <effect type="fade" start="100" end="73.4" time="300" tween="sine" easing="inout" />
+                            </animation>
+                            <control type="image">
+                                <posx>0</posx>
+                                <posy>0</posy>
+                                <width>480</width>
+                                <height>270</height>
+                                <texture background="true">$VAR[ExtendedViewThumb]</texture>
+                                <aspectratio align="center" aligny="center" scalediffuse="false">scale</aspectratio>
+                                <visible>[[Container.Content(tvshows) + !Skin.HasSetting(ExtendedUseClearArt) + !Skin.HasSetting(ExtendedUseClearLogo)] | [Container.Content(movies) + !Skin.HasSetting(ExtendedUseClearMovieArt) + !Skin.HasSetting(ExtendedUseClearMovieLogo)]] | [IsEmpty(ListItem.Art(clearart)) + IsEmpty(ListItem.Art(clearlogo))]</visible>
+                            </control>
+                            <control type="image">
+                                <posx>0</posx>
+                                <posy>0</posy>
+                                <width>480</width>
+                                <height>270</height>
+                                <texture background="true">$VAR[ExtendedViewLogo]</texture>
+                                <aspectratio align="center" aligny="bottom" scalediffuse="false">keep</aspectratio>
+                                <visible>[[Container.Content(tvshows) + [Skin.HasSetting(ExtendedUseClearArt) | Skin.HasSetting(ExtendedUseClearLogo)]] | [Container.Content(movies) + [Skin.HasSetting(ExtendedUseClearMovieArt) | Skin.HasSetting(ExtendedUseClearMovieLogo)]]] + ![IsEmpty(ListItem.Art(clearart)) + IsEmpty(ListItem.Art(clearlogo))]</visible>
+                            </control>
+                            <control type="image">
+                                <posx>0</posx>
+                                <posy>269</posy>
+                                <width>480</width>
+                                <height>1</height>
+                                <colordiffuse>D1000000</colordiffuse>
+                                <texture>windows/common/black.png</texture>
+                                <visible>[[Container.Content(tvshows) + !Skin.HasSetting(ExtendedUseClearArt) + !Skin.HasSetting(ExtendedUseClearLogo)] | [Container.Content(movies) + !Skin.HasSetting(ExtendedUseClearMovieArt) + !Skin.HasSetting(ExtendedUseClearMovieLogo)]] | [IsEmpty(ListItem.Art(clearart)) + IsEmpty(ListItem.Art(clearlogo))]</visible>
+                            </control>
+                        </control>
+                        <control type="image">
+                            <posx>380</posx>
+                            <posy>0</posy>
+                            <width>100</width>
+                            <height>100</height>
+                            <texture>$VAR[ExtendedOverlay]</texture>
+                            <animation effect="slide" end="0,270" time="0" condition="[[Container.Content(tvshows) + [Skin.HasSetting(ExtendedUseClearArt) | Skin.HasSetting(ExtendedUseClearLogo)]] | [Container.Content(movies) + [Skin.HasSetting(ExtendedUseClearMovieArt) | Skin.HasSetting(ExtendedUseClearMovieLogo)]]]">Conditional</animation>
+                        </control>
+                    </focusedlayout>
+                </control>
+            </control>
+            <control type="group">
+                <animation type="WindowOpen" reversible="false">
+                    <effect type="fade" start="0" end="100" delay="450" time="300" tween="sine" easing="inout" />
+                </animation>
+                <animation type="WindowClose" reversible="false">
+                    <effect type="fade" start="100" end="0" time="250" tween="sine" easing="inout" />
+                </animation>
+                <animation type="Visible" reversible="true">
+                    <effect type="fade" start="0" end="100" delay="750" time="300" tween="sine" easing="inout" />
+                </animation>
+                <animation type="Hidden" reversible="true">
+                    <effect type="fade" start="100" end="0" time="250" tween="sine" easing="inout" />
+                </animation>
+                <visible>!Window.IsActive(movieinformation) + !Window.IsActive(script-Actors-DialogInfo.xml) + !Window.IsActive(script-Actors-DialogVideoInfo.xml) + IsEmpty(Window(Home).Property(script.metadata.actors.hasparent)) + Control.IsVisible(54) + !Window.IsActive(favourites)</visible>
+                <!--Scrollbar-->
+                <control type="image">
+                    <description>Scrollbar background (visible on focus)</description>
+                    <posx>104</posx>
+                    <posy>135r</posy>
+                    <width>1712</width>
+                    <height>6</height>
+                    <texture border="6,0,6,0">views/other/scrollbar-sq.png</texture>
+                    <visible>Control.IsVisible(54) + Control.HasFocus(70)</visible>
+                    <animation effect="fade" start="0" end="25" time="300" tween="sine" easing="inout">Visible</animation>
+                    <animation effect="fade" start="25" end="0" time="300" tween="sine" easing="inout">Hidden</animation>
+                </control>
+                <control type="scrollbar" id="70">
+                    <description>Scrollbar</description>
+                    <posx>104</posx>
+                    <posy>135r</posy>
+                    <width>1712</width>
+                    <height>6</height>
+                    <orientation>horizontal</orientation>
+                    <texturesliderbar border="6,0,6,0">views/other/scrollbar-sq.png</texturesliderbar>
+                    <texturesliderbarfocus border="6,0,6,0">views/other/scrollbar-sq.png</texturesliderbarfocus>
+                    <showonepage>false</showonepage>
+                    <onup>54</onup>
+                    <ondown condition="!Skin.HasSetting(KioskMode)">9010</ondown>
+                    <ondown condition="Skin.HasSetting(KioskMode)">54</ondown>
+                    <animation effect="fade" start="40" end="0" time="300" tween="sine" easing="inout" condition="!Control.IsVisible(9772)">Conditional</animation>
+                    <visible>Control.IsVisible(54)</visible>
+                </control>
+            </control>
+        </control>
+    </include>
 
 <!-- =========== -->
 <!-- Poster (55) -->

@@ -181,7 +181,7 @@
                     <posy>51</posy>
                     <width>250</width>
                     <height>100</height>
-                    <label>$INFO[ListItem.Rating,, ★]</label>
+                    <label>$INFO[ListItem.Rating,, *]</label>
                     <font>Font-Condensed-S75</font>
                     <textcolor>aawhite</textcolor>
                     <align>right</align>
@@ -637,7 +637,7 @@
                             <height>36</height>
                             <font>Font-Condensed-S34</font>
                             <align>left</align>
-                            <label>$INFO[ListItem.Year,, • ]$INFO[ListItem.Duration,, $LOCALIZE[12391]]$INFO[ListItem.RatingAndVotes, • ★ ,]</label>
+                            <label>$INFO[ListItem.Year,, • ]$INFO[ListItem.Duration,, $LOCALIZE[12391]]$INFO[ListItem.RatingAndVotes, • * ,]</label>
                             <textcolor>aawhite</textcolor>
                             <scroll>false</scroll>
                         </control>

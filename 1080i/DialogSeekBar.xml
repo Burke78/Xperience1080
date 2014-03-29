@@ -267,7 +267,7 @@
                                     <width>1460</width>
                                     <height>44</height>
                                     <label>$INFO[VideoPlayer.Year]$INFO[VideoPlayer.Genre, • ,]</label>
-                                    <label2>$INFO[VideoPlayer.Rating, ★ ,]</label2>
+                                    <label2>$INFO[VideoPlayer.Rating, * ,]</label2>
                                     <disabledcolor>88FFFFFF</disabledcolor>
                                     <font>Font-Condensed-S36</font>
                                     <align>left</align>
@@ -281,7 +281,7 @@
                                     <width>1460</width>
                                     <height>44</height>
                                     <label>$INFO[VideoPlayer.Year]$INFO[VideoPlayer.Genre]</label>
-                                    <label2>$INFO[VideoPlayer.Rating, ★ ,]</label2>
+                                    <label2>$INFO[VideoPlayer.Rating, * ,]</label2>
                                     <disabledcolor>88FFFFFF</disabledcolor>
                                     <font>Font-Condensed-S36</font>
                                     <align>left</align>
@@ -337,7 +337,7 @@
                                     <width>1460</width>
                                     <height>44</height>
                                     <label>$INFO[VideoPlayer.TVShowTitle]$INFO[VideoPlayer.Season, • $LOCALIZE[20373] ,]</label>
-                                    <label2>$INFO[VideoPlayer.Rating, ★ ,]</label2>
+                                    <label2>$INFO[VideoPlayer.Rating, * ,]</label2>
                                     <disabledcolor>88FFFFFF</disabledcolor>
                                     <font>Font-Condensed-S36</font>
                                     <align>left</align>

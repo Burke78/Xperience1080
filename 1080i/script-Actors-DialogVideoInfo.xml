@@ -114,7 +114,7 @@
                     <posy>51</posy>
                     <width>250</width>
                     <height>100</height>
-                    <label>$INFO[ListItem.Rating,, ★]</label>
+                    <label>$INFO[ListItem.Rating,, *]</label>
                     <font>Font-Condensed-S75</font>
                     <textcolor>aawhite</textcolor>
                     <align>right</align>

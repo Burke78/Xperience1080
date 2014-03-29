@@ -1,108 +1,12 @@
 <includes>
 
-    <!--Home shutdown/favs Buttons-->
+    <!--Home shutdown-favs Buttons-->
     <include name="shutdown-favs">
         <control type="group" id="80">
             <description>Home Buttons</description>
             <control type="button" id="21">
                 <description>Shutdown Button</description>
-                <posx>50</posx>
-                <posy>950</posy>
-                <width>100</width>
-                <height>100</height>
-                <onup condition="Container(20).HasFocus(1)">101</onup>
-                <onup condition="Container(20).HasFocus(2)">501</onup>
-                <onup condition="Container(20).HasFocus(3)">201</onup>
-                <onup condition="Container(20).HasFocus(4)">301</onup>
-                <onup condition="Container(20).HasFocus(5)">401</onup>
-                <onup condition="Container(20).HasFocus(6)">601</onup>
-                <onup condition="Container(20).HasFocus(7)">701</onup>
-                <onup condition="Container(20).HasFocus(8)">801</onup>
-                <onup condition="Container(20).HasFocus(9)">901</onup>
-                <ondown condition="Container(20).HasFocus(1)">125</ondown>
-                <ondown condition="Container(20).HasFocus(2)">525</ondown>
-                <ondown condition="Container(20).HasFocus(3)">225</ondown>
-                <ondown condition="Container(20).HasFocus(4)">325</ondown>
-                <ondown condition="Container(20).HasFocus(5)">425</ondown>
-                <ondown condition="Container(20).HasFocus(6)">625</ondown>
-                <ondown condition="Container(20).HasFocus(7)">725</ondown>
-                <ondown condition="Container(20).HasFocus(8)">825</ondown>
-                <ondown condition="Container(20).HasFocus(9)">925</ondown>
-                <onleft>23</onleft>
-                <onright>22</onright>
-                <texturefocus>special://skin/extras/buttons/shutdown_fo.png</texturefocus>
-                <texturenofocus>special://skin/extras/buttons/shutdown_nofo.png</texturenofocus>
-                <onclick>ActivateWindow(ShutdownMenu)</onclick>
-                <include>Animation_ShutdownButton</include>
-                <include>homebuttonsanim</include>
-                <visible allowhiddenfocus="true">true</visible>
-            </control>
-            <!-- <control type="label">
-                <description>Shutdown Label</description>
-                <posx>157</posx>
-                <posy>950</posy>
-                <width>180</width>
-                <height>100</height>
-                <label>$LOCALIZE[41507]</label>
-                <font>Font-Condensed-S34-B</font>
-                <textcolor>eewhite</textcolor>
-                <shadowcolor>22000000</shadowcolor>
-                <include>Animation_ShutdownButton</include>
-                <include>homebuttonsanim2</include>
-            </control> -->
-            <control type="button" id="22">
-                <description>Favourites Button</description>
-                <posx>115</posx>
-                <posy>950</posy>
-                <width>100</width>
-                <height>100</height>
-                <onup condition="Container(20).HasFocus(1)">101</onup>
-                <onup condition="Container(20).HasFocus(2)">501</onup>
-                <onup condition="Container(20).HasFocus(3)">201</onup>
-                <onup condition="Container(20).HasFocus(4)">301</onup>
-                <onup condition="Container(20).HasFocus(5)">401</onup>
-                <onup condition="Container(20).HasFocus(6)">601</onup>
-                <onup condition="Container(20).HasFocus(7)">701</onup>
-                <onup condition="Container(20).HasFocus(8)">801</onup>
-                <onup condition="Container(20).HasFocus(9)">901</onup>
-                <ondown condition="Container(20).HasFocus(1)">125</ondown>
-                <ondown condition="Container(20).HasFocus(2)">525</ondown>
-                <ondown condition="Container(20).HasFocus(3)">225</ondown>
-                <ondown condition="Container(20).HasFocus(4)">325</ondown>
-                <ondown condition="Container(20).HasFocus(5)">425</ondown>
-                <ondown condition="Container(20).HasFocus(6)">625</ondown>
-                <ondown condition="Container(20).HasFocus(7)">725</ondown>
-                <ondown condition="Container(20).HasFocus(8)">825</ondown>
-                <ondown condition="Container(20).HasFocus(9)">925</ondown>
-                <onleft>21</onleft>
-                <onright>23</onright>
-                <texturefocus>special://skin/extras/buttons/favourites_fo.png</texturefocus>
-                <texturenofocus>special://skin/extras/buttons/favourites_nofo.png</texturenofocus>
-                <onclick>CancelAlarm(HomeTileMove,true)</onclick>
-                <onclick>CancelAlarm(HomeTileMoveTwo,true)</onclick>
-                <onclick>CancelAlarm(HomeTileMoveThree,true)</onclick>
-                <onclick>ActivateWindow(Favourites)</onclick>
-                <include>Animation_FavButton</include>
-                <include>homebuttonsanim3</include>
-                <visible allowhiddenfocus="true">!Window.IsVisible(favourites) + !Window.IsVisible(script-globalsearch-main.xml) + !Window.IsVisible(script-globalsearch-infodialog.xml) + !Window.IsVisible(script-globalsearch-contextmenu.xml) + !Window.IsVisible(virtualkeyboard) + IsEmpty(Window.Property(HomeSearch)) + !Window.IsVisible(playercontrols)</visible>
-            </control>
-            <!-- <control type="label">
-                <description>Favourites Label</description>
-                <posx>362</posx>
-                <posy>950</posy>
-                <width>180</width>
-                <height>100</height>
-                <label>$LOCALIZE[1036]</label>
-                <font>Font-Condensed-S34-B</font>
-                <textcolor>eewhite</textcolor>
-                <shadowcolor>22000000</shadowcolor>
-                <include>Animation_FavButton</include>
-                <include>homebuttonsanim4</include>
-                <visible>!Window.IsVisible(favourites) + !Window.IsVisible(script-globalsearch-main.xml) + !Window.IsVisible(script-globalsearch-infodialog.xml) + !Window.IsVisible(script-globalsearch-contextmenu.xml) + !Window.IsVisible(virtualkeyboard) + IsEmpty(Window.Property(HomeSearch)) + !Window.IsVisible(playercontrols)</visible>
-            </control> -->
-            <control type="button" id="23">
-                <description>Settings Button</description>
-                <posx>180</posx>
+                <posx>72</posx>
                 <posy>950</posy>
                 <width>100</width>
                 <height>100</height>
@@ -125,9 +29,58 @@
                 <ondown condition="Container(20).HasFocus(8)">825</ondown>
                 <ondown condition="Container(20).HasFocus(9)">925</ondown>
                 <onleft>22</onleft>
+                <onright>22</onright>
+                <texturefocus>buttons/shutdown_fo.png</texturefocus>
+                <texturenofocus>buttons/shutdown_nofo.png</texturenofocus>
+                <onclick>ActivateWindow(ShutdownMenu)</onclick>
+                <include>Animation_ShutdownButton</include>
+                <include>homebuttonsanim</include>
+                <visible allowhiddenfocus="true">true</visible>
+            </control>
+			<!--
+            <control type="label">
+                <description>Shutdown Label</description>
+                <posx>157</posx>
+                <posy>950</posy>
+                <width>180</width>
+                <height>100</height>
+                <label>$LOCALIZE[41507]</label>
+                <font>Font-Condensed-S34-B</font>
+                <textcolor>eewhite</textcolor>
+                <shadowcolor>22000000</shadowcolor>
+                <shadowcolor>22000000</shadowcolor>
+                <include>Animation_ShutdownButton</include>
+                <include>homebuttonsanim2</include>
+            </control>
+			-->
+            <control type="button" id="22">
+                <description>Favourites Button</description>
+                <posx>142</posx>
+                <posy>950</posy>
+                <width>98</width>
+                <height>98</height>
+                <onup condition="Container(20).HasFocus(1)">101</onup>
+                <onup condition="Container(20).HasFocus(2)">501</onup>
+                <onup condition="Container(20).HasFocus(3)">201</onup>
+                <onup condition="Container(20).HasFocus(4)">301</onup>
+                <onup condition="Container(20).HasFocus(5)">401</onup>
+                <onup condition="Container(20).HasFocus(6)">601</onup>
+                <onup condition="Container(20).HasFocus(7)">701</onup>
+                <onup condition="Container(20).HasFocus(8)">801</onup>
+                <onup condition="Container(20).HasFocus(9)">901</onup>
+                <ondown condition="Container(20).HasFocus(1)">125</ondown>
+                <ondown condition="Container(20).HasFocus(2)">525</ondown>
+                <ondown condition="Container(20).HasFocus(3)">225</ondown>
+                <ondown condition="Container(20).HasFocus(4)">325</ondown>
+                <ondown condition="Container(20).HasFocus(5)">425</ondown>
+                <ondown condition="Container(20).HasFocus(6)">625</ondown>
+                <ondown condition="Container(20).HasFocus(7)">725</ondown>
+                <ondown condition="Container(20).HasFocus(8)">825</ondown>
+                <ondown condition="Container(20).HasFocus(9)">925</ondown>
+                <onleft>21</onleft>
                 <onright>21</onright>
-                <texturefocus>special://skin/extras/buttons/options_fo.png</texturefocus>
-                <texturenofocus>special://skin/extras/buttons/options_nofo.png</texturenofocus>
+                <texturefocus>osd/fullscreen/buttons/viz-settings-fo.png</texturefocus>
+                <texturenofocus>osd/fullscreen/buttons/viz-settings-nofo.png</texturenofocus>
                 <onclick>CancelAlarm(HomeTileMove,true)</onclick>
                 <onclick>CancelAlarm(HomeTileMoveTwo,true)</onclick>
                 <onclick>CancelAlarm(HomeTileMoveThree,true)</onclick>
@@ -136,9 +89,25 @@
                 <include>homebuttonsanim3</include>
                 <visible allowhiddenfocus="true">!Window.IsVisible(favourites) + !Window.IsVisible(script-globalsearch-main.xml) + !Window.IsVisible(script-globalsearch-infodialog.xml) + !Window.IsVisible(script-globalsearch-contextmenu.xml) + !Window.IsVisible(virtualkeyboard) + IsEmpty(Window.Property(HomeSearch)) + !Window.IsVisible(playercontrols)</visible>
             </control>
+			<!--
+            <control type="label">
+                <description>Favourites Label</description>
+                <posx>362</posx>
+                <posy>950</posy>
+                <width>180</width>
+                <height>100</height>
+                <label>$LOCALIZE[1036]</label>
+                <font>Font-Condensed-S34-B</font>
+                <textcolor>eewhite</textcolor>
+                <shadowcolor>22000000</shadowcolor>
+                <include>Animation_FavButton</include>
+                <include>homebuttonsanim4</include>
+                <visible>!Window.IsVisible(favourites) + !Window.IsVisible(script-globalsearch-main.xml) + !Window.IsVisible(script-globalsearch-infodialog.xml) + !Window.IsVisible(script-globalsearch-contextmenu.xml) + !Window.IsVisible(virtualkeyboard) + IsEmpty(Window.Property(HomeSearch)) + !Window.IsVisible(playercontrols)</visible>
+            </control>
+			-->
         </control>
     </include>
-	<!-- min menu -->
+
     <include name="HomeLabel">
         <width min="0" max="500">auto</width>
         <height>100</height>
@@ -149,7 +118,7 @@
         <align>left</align>
         <aligny>top</aligny>
     </include>
-	<!-- upper left info text -->
+    
     <include name="HomeProfileInfoLabel">
         <posx>110</posx>
         <posy>46</posy>
@@ -181,7 +150,7 @@
     
     <variable name="HomeDVDLabel">
         <value condition="System.HasMediaDVD">$LOCALIZE[208]</value>
-        <value>$LOCALIZE[41524]</value>
+        <value>Pictures</value>
     </variable>
     
     <variable name="SpotlightLabelVAR">
@@ -214,13 +183,6 @@
         <value>$LOCALIZE[41556]</value>
     </variable>
  
- 
- 	<!-- varijabla fotke -->
-	
-	<variable name="Photo">
-        <value>home_pictures/001.jpg</value>
-    </variable>
-	
     <include name="HomeProfileInfo">
         <control type="group">
             <visible>!Window.IsActive(favourites) + !Window.IsActive(script-globalsearch-main.xml) + !Window.IsActive(script-globalsearch-infodialog.xml) + !Window.IsActive(script-globalsearch-contextmenu.xml) + ![Window.IsVisible(virtualkeyboard) + !IsEmpty(Window.Property(HomeSearch))]</visible>
@@ -351,8 +313,7 @@
             </control>
         </control>
     </include>
-	<!-- Main menu item list names -->
-	
+
     <include name="HomeControlListLabels">
         <control type="GroupList">
             <description>Button labels</description>
@@ -411,7 +372,7 @@
             <control type="label">
                 <description>Home</description>
                 <include>HomeLabel</include>
-                <label>$LOCALIZE[41448]</label> 
+                <label>$VAR[HomeDVDLabel]</label>
                 <animation effect="fade" start="100" end="40" time="300" tween="cubic" easing="inout" condition="!Container(20).HasFocus(2)">Conditional</animation>
                 <animation effect="zoom"  start="100" end="80" time="300" tween="cubic" easing="inout" center="auto" condition="!Control.HasFocus(525)">Conditional</animation>
             </control>
@@ -503,7 +464,7 @@
                 <animation effect="fade" start="100" end="40" time="300" tween="cubic" easing="inout" condition="!Container(20).HasFocus(7)">Conditional</animation>
                 <animation effect="zoom"  start="100" end="80" time="150" tween="sine" easing="inout" center="auto" condition="!Control.HasFocus(725)">Conditional</animation>
             </control>
-			<!-- setting - do not need them any more
+			<!--
             <control type="image">
                 <description>Settings</description>
                 <posx>0</posx>
@@ -513,8 +474,8 @@
                 <texture>windows/home/settings.png</texture>
                 <animation effect="fade" start="100" end="40" time="300" tween="cubic" easing="inout" condition="!Container(20).HasFocus(8)">Conditional</animation>
                 <animation effect="zoom"  start="100" end="80" time="300" tween="cubic" easing="inout" center="19,50" condition="!Control.HasFocus(825)">Conditional</animation>
-            </control> -->
-			
+            </control>
+			-->
         </control>
     </include>
     
@@ -611,9 +572,8 @@
                 </item> 
             </content>
         </control>
-    </include> 
-	
-    <!--### Home items -->
+    </include>
+    
     <include name="HomeItems">
         <control type="grouplist" id="40">
             <posx>-200</posx>
@@ -686,7 +646,7 @@
                         <posy>202</posy>
                         <width>1291</width>
                         <height>168</height>
-                        <texture border="40">special://skin/extras/home/tile-fo.png</texture>
+                        <texture border="40">windows/home/tile-fo.png</texture>
                         <animation type="Visible">
                             <effect type="zoom" start="98" end="100" time="200" tween="sine" easing="inout" center="auto" />
                             <effect type="fade" start="0" end="100" time="200" tween="sine" easing="in" />
@@ -772,7 +732,6 @@
                     </control>
                 </control>
             </control>
-			<!--### Live TV -->
             <control type="group" id="900">
                 <width>2320</width>
                 <height>780</height>
@@ -892,7 +851,7 @@
                                     <posy>3</posy>
                                     <width>325</width>
                                     <height>325</height>
-                                    <texture border="40">special://skin/extras/home/tile-fo.png</texture>
+                                    <texture border="40">windows/home/tile-fo.png</texture>
                                     <animation type="Focus">
                                         <effect type="zoom" start="95" end="100" time="200" tween="sine" easing="inout" center="auto" />
                                         <effect type="fade" start="0" end="100" time="200" tween="sine" easing="in" />
@@ -997,11 +956,12 @@
                     </control>
                 </control>
             </control>
-			<!--### Home ###-->
+			<!-- ### Home 500 #-->
             <control type="group" id="500">
                 <description>Home</description>
                 <width>2320</width>
                 <height>780</height>
+				<!-- grupa 525 menu label for home -->
                 <control type="button" id="525">
                     <onleft condition="System.HasAddon(script.globalsearch) | System.GetBool(pvrmanager.enabled)">CancelAlarm(HomeTileMove,true)</onleft>
                     <onleft condition="System.HasAddon(script.globalsearch) | System.GetBool(pvrmanager.enabled)">CancelAlarm(HomeTileMoveTwo,true)</onleft>
@@ -1025,13 +985,13 @@
                     <onup condition="!System.HasMediaDVD">80</onup>
                     <onup condition="System.HasMediaDVD">EjectTray</onup>
                     <ondown>501</ondown>
-					<!--
-                    <onclick condition="System.HasMediaDVD">PlayDVD</onclick>-->
-					<onclick>ActivateWindow(Pictures)</onclick>					
+                    <onclick condition="System.HasMediaDVD">PlayDVD</onclick>
+					<onclick>ActivateWindow(Pictures)</onclick>
                 </control>
+				<!-- grupa 550 -->
                 <control type="group" id="550">
                     <posy>100</posy>
-                    <posx>626</posx>
+                    <posx>535</posx>
                     <animation type="WindowOpen" condition="[Container(20).HasFocus(1) + !System.GetBool(pvrmanager.enabled)] | [Container(20).HasFocus(9) + System.GetBool(pvrmanager.enabled)]" reversible="true">
                         <effect type="slide" start="1500" end="0" tween="cubic" easing="out" time="700" /> 
                         <effect type="fade" start="25" end="100" tween="sine" easing="in" time="350" delay="250" />
@@ -1060,20 +1020,6 @@
                         <effect type="fade" start="100" end="80" time="500" tween="cubic" easing="inout" />
                         <effect type="zoom" start="100" end="80" time="500" tween="cubic" easing="inout" center="1160,386" />
                     </animation>
-					<!--# my extra label for home 
-					<control type="label">			
-						<description>big label</description>
-						<posx>0</posx>
-						<posy>-100</posy>
-						<width>532</width>
-						<height>64</height>
-						<label>Home</label>
-						<font>Font-Condensed-S75</font>
-						<textcolor>aawhite</textcolor>
-						<align>left</align>
-						<aligny>center</aligny>
-						<scroll>false</scroll>
-					</control> -->
                     <control type="image">
                         <description>Bottom shadow</description>
                         <posx>-92</posx>
@@ -1082,25 +1028,8 @@
                         <height>150</height>
                         <texture>windows/home/item-shadow.png</texture>
                     </control>
-					<!-- ### Spotlight ###-->
+					<!-- ### 502 Left side poster #-->
                     <control type="group" id="502">
-						<control type="image">
-                            <description>Title overlay</description>
-                            <posx>0</posx>
-                            <posy>0</posy>
-                            <width>763</width>
-                            <height>572</height>
-                            <colordiffuse>99000000</colordiffuse>
-                            <texture border="1">windows/common/black.png</texture>
-                       </control>
-						<control type="image">
-                                    <posx>244</posx>
-                                    <posy>142</posy>
-                                    <width>283</width>
-                                    <height>283</height>
-                                    <texture>windows/home/icons/addtile.png</texture>
-                                    <visible>IsEmpty(ListItem.Property(Path))</visible>
-						</control>
                         <description>Spotlight (random items)</description>
                         <posx>289</posx>
                         <posy>0</posy>
@@ -1118,7 +1047,7 @@
                             <onleft>AlarmClock(HomeTileMoveTwo,Control.Move(5022,1),00:07,silent,loop)</onleft>
                             <onleft>501</onleft>
                             <onright>AlarmClock(HomeTileMoveTwo,Control.Move(5022,1),00:07,silent,loop)</onright>
-                            <!-- <onright>503</onright>-->
+                            <!-- <onright>502</onright>-->
                             <onright>CancelAlarm(HomeTileMoveTwo,true)</onright>
                             <onright condition="!Skin.HasSetting(HomeMovies)">AlarmClock(HomeTileMove,Control.Move(2022,1),00:07,silent,loop)</onright>
                             <onright condition="Skin.HasSetting(HomeMovies) + !Skin.HasSetting(HomeTVShows)">AlarmClock(HomeTileMove,Control.Move(3022,1),00:07,silent,loop)</onright>
@@ -1135,27 +1064,45 @@
                             <onback condition="!Skin.HasSetting(KioskMode)">Skin.SetPath(PicturesDir)</onback>
 							<include condition="!Skin.HasSetting(DarkerPanels)">SettingsCategoryDefaultButtonVars</include>		
                         </control>
-						<control type="group"> 
 						<!--- ### fotka spotlight -->
-						<control type="multiimage">
-							<posx>0</posx>
-							<posy>0</posy>
-							<width>763</width>
-							<height>570</height>
-							<timeperimage>10000</timeperimage>
-							<randomize>true</randomize>
-							<fadetime>600</fadetime>
-							<loop>yes</loop>
-							<animation effect="fade" start="0" end="100" time="0">Visible</animation>
-							<animation effect="fade" start="100" delay="500" end="0" time="10">Hidden</animation>
-							<aspectratio>scale</aspectratio>
-							<imagepath background="true" fallback="pictures.png">$INFO[Skin.String(PicturesDir)]</imagepath>
-							<texturefocus background="true" fallback="media/windows/common/black.png">$INFO[ListItem.addtile]</texturefocus>
-							<texturenofocus background="true" fallback="media/windows/common/black.png">$INFO[ListItem.addtile]</texturenofocus>							
+						<control type="group"> 
+							<control type="multiimage">
+								<posx>0</posx>
+								<posy>0</posy>
+								<width>960</width>
+								<height>570</height>
+								<timeperimage>10000</timeperimage>
+								<randomize>true</randomize>
+								<fadetime>600</fadetime>
+								<loop>yes</loop>
+								<animation effect="fade" start="0" end="100" time="0">Visible</animation>
+								<animation effect="fade" start="100" delay="500" end="0" time="10">Hidden</animation>
+								<aspectratio>center</aspectratio>
+								<imagepath background="true" fallback="pictures.png">$INFO[Skin.String(PicturesDir)]</imagepath>
+								<texturefocus background="true" fallback="media/windows/common/black.png">$INFO[ListItem.addtile]</texturefocus>
+								<texturenofocus background="true" fallback="media/windows/common/black.png">$INFO[ListItem.addtile]</texturenofocus>							
+							</control>
 						</control>
-						</control>
-
 						<!--
+                        <control type="button" id="5021">
+                            <posx>0</posx>
+                            <posy>0</posy>
+                            <width>572</width>
+                            <height>960</height>
+                            <onfocus>CancelAlarm(HomeTileMove,true)</onfocus>
+                            <onfocus>CancelAlarm(HomeTileMoveTwo,true)</onfocus>
+                            <onup>AlarmClock(HomeTileMoveTwo,Control.Move(5022,1),00:07,silent,loop)</onup>
+                            <onup>525</onup>
+                            <ondown>Control.Move(5022,1)</ondown>
+                            <onleft>AlarmClock(HomeTileMoveTwo,Control.Move(5022,1),00:07,silent,loop)</onleft>
+                            <onleft>501</onleft>
+                            <onright>AlarmClock(HomeTileMoveTwo,Control.Move(5022,1),00:07,silent,loop)</onright>
+                            <onright>502</onright>
+                            <onclick condition="System.HasAddon(service.skin.widgets)">$INFO[Container(5022).ListItem.Property(Play)]</onclick>
+                            <onback condition="!Skin.HasSetting(KioskMode)">SetProperty(SingleDialog,widget1,3003)</onback>
+                            <onback condition="!Skin.HasSetting(KioskMode)">SetProperty(Dialog,$LOCALIZE[41168],skinsettings)</onback>
+                            <onback condition="!Skin.HasSetting(KioskMode)">ActivateWindow(3003)</onback>
+                        </control>
                         <control type="image">
                             <posx>-5</posx>
                             <posy>-5</posy>
@@ -1163,11 +1110,11 @@
                             <height>582</height>
                             <texture border="7">windows/home/tile.png</texture>
                         </control>
-
+						<!-- ### fotke spotlight
                         <control type="wraplist" id="5022">
                             <posx>0</posx>
                             <posy>0</posy>
-                            <width>572</width>
+                            <width>960</width>
                             <height>572</height>
                             <onup>525</onup>
                             <ondown>80</ondown>
@@ -1178,26 +1125,24 @@
                             <pagecontrol>5024</pagecontrol>
                             <visible allowhiddenfocus="true">IntegerGreaterThan(Container(5022).NumItems,0)</visible>
                             <include>visiblehidefadeinfodelayvisible</include>
-
-							<!--
-                            <itemlayout width="572" height="501">
-                                <control type="multiimage">
+                            <itemlayout width="960" height="501">
+                                <control type="image">
                                     <posx>0</posx>
                                     <posy>0</posy>
-                                    <width>572</width>
-                                    <height>572</height>
+                                    <width>960</width>
+                                    <height>960</height>
                                     <aspectratio>scale</aspectratio>
-                                    <texture background="true">$INFO[Skin.String(PicturesDir)]</texture>
+                                    <texture background="true">$INFO[ListItem.Icon]</texture>
                                 </control>
                             </itemlayout>
-                            <focusedlayout width="572" height="501">
-                                <control type="multiimage">
+                            <focusedlayout width="960" height="501">
+                                <control type="image">
                                     <posx>0</posx>
                                     <posy>0</posy>
-                                    <width>572</width>
+                                    <width>960</width>
                                     <height>572</height>
                                     <aspectratio>scale</aspectratio>
-                                    <texture background="true">$INFO[Skin.String(PicturesDir)]</texture>
+                                    <texture background="true">$INFO[ListItem.Icon]</texture>
                                 </control>
                             </focusedlayout>
                             <content>
@@ -1208,12 +1153,12 @@
                             <description>Title overlay</description>
                             <posx>0</posx>
                             <posy>508</posy>
-                            <width>572</width>
+                            <width>960</width>
                             <height>64</height>
                             <colordiffuse>99000000</colordiffuse>
                             <texture border="1">windows/common/black.png</texture>
-                       </control>
-					   <!--
+                        </control>
+						-->
                         <control type="group" id="5023">
                             <visible>!Control.IsVisible(5022) + [[stringcompare(Skin.String(HomeWidget.1.Type),service.skin.widgets) + IsEmpty(Window(Home).Property(SkinWidgets_Running))] | [stringcompare(Skin.String(HomeWidget.1.Type),script.randomandlastitems) + IsEmpty(Window(Home).Property(HomeWidget1.Loaded))] | [!stringcompare(Skin.String(HomeWidget.1.Type),service.skin.widgets) + !stringcompare(Skin.String(HomeWidget.1.Type),script.randomandlastitems) + !IsEmpty(Window(Home).Property(extendedinfo_running))]]</visible>
                             <include>visiblehidefadeinfo</include>
@@ -1248,7 +1193,7 @@
                                 <scroll>false</scroll>
                             </control>
                         </control>
-						
+						<!--
                         <control type="button">
                             <description>Title label</description>
                             <posx>20</posx>
@@ -1256,7 +1201,7 @@
                             <width>532</width>
                             <height>64</height>
                             <label>$INFO[Container(5022).ListItem.Label]</label>
-                            <label2>$INFO[Container(5022).ListItem.Label2, ★ ,]</label2>
+                            <label2>$INFO[Container(5022).ListItem.Label2, * ,]</label2>
                             <font>Font-Condensed-S29-B</font>
                             <disabledcolor>aawhite</disabledcolor>
                             <align>left</align>
@@ -1264,7 +1209,8 @@
                             <enable>false</enable>
                             <visible>Control.IsVisible(5022)</visible>
                             <include>visiblehidefadeinfodelayvisible</include>
-                        </control>-->
+                        </control>
+						-->
                         <control type="label">
                             <posx>0</posx>
                             <posy>576</posy>
@@ -1276,7 +1222,7 @@
                             <align>left</align>
                             <aligny>center</aligny>
                             <textoffsetx>5</textoffsetx>
-                            <label>[UPPERCASE]Spotligh[/UPPERCASE]</label>
+                            <label>[UPPERCASE]$VAR[SpotlightLabelVAR][/UPPERCASE]</label>
                             <animation effect="slide" end="0,6" time="100" tween="sine" easing="out" condition="ControlGroup(502).HasFocus">Conditional</animation>
                         </control>
 						<!--
@@ -1314,10 +1260,13 @@
                             <visible>Window.IsActive(contextmenu) + Control.HasFocus(5021)</visible>
                             <animation effect="fade" time="300" start="0" end="95" tween="sine" easing="out">Visible</animation>
                             <animation effect="fade" time="300" start="95" end="0" tween="sine" easing="in">Hidden</animation>
-                        </control>-->
+                        </control>
+						-->
                     </control>
-					<!-- END Spotlight -->
-                    <!--<control type="group" id="503">
+					
+					<!-- ### 503 Left side poster #-->
+					<!--
+                    <control type="group" id="503">
                         <description>Ongoing tv shows</description>
                         <posx>867</posx>
                         <control type="button" id="5031">
@@ -1347,8 +1296,7 @@
                             <onback condition="!Skin.HasSetting(KioskMode)">SetProperty(Dialog,$LOCALIZE[41168],skinsettings)</onback>
                             <onback condition="!Skin.HasSetting(KioskMode)">ActivateWindow(3003)</onback>
                         </control>
-						
-                        <!--<control type="image">
+                        <control type="image">
                             <posx>-5</posx>
                             <posy>-5</posy>
                             <width>392</width>
@@ -1443,7 +1391,7 @@
                             <width>342</width>
                             <height>64</height>
                             <label>$INFO[Container(5032).ListItem.Label]</label>
-                            <label2>$INFO[Container(5032).ListItem.Label2, ★ ,]</label2>
+                            <label2>$INFO[Container(5032).ListItem.Label2, * ,]</label2>
                             <font>Font-Condensed-S29-B</font>
                             <disabledcolor>aawhite</disabledcolor>
                             <align>left</align>
@@ -1501,7 +1449,10 @@
                             <animation effect="fade" time="300" start="0" end="95" tween="sine" easing="out">Visible</animation>
                             <animation effect="fade" time="300" start="95" end="0" tween="sine" easing="in">Hidden</animation>
                         </control>
-                    </control> -->
+                    </control>
+					-->
+					<!-- ### Home left side icons #-->
+					
                     <control type="panel" id="501">
                         <posx>-24</posx>
                         <posy>-24</posy>
@@ -1521,300 +1472,6 @@
                         <onback condition="!Skin.HasSetting(KioskMode)">Select</onback>
                         <scrolltime>0</scrolltime>
 						
-						<!-- ikone -->
-                        <itemlayout width="289" height="289">
-                            <control type="group">
-                                <animation effect="fade" end="90" time="0" condition="true">Conditional</animation>
-                                <control type="image">
-                                    <posx>19</posx>
-                                    <posy>19</posy>
-                                    <width>293</width>
-                                    <height>293</height>
-                                    <texture border="7">windows/home/tile.png</texture>
-                                </control>
-                                <control type="image">
-                                    <posx>24</posx>
-                                    <posy>24</posy>
-                                    <width>283</width>
-                                    <height>283</height>
-                                    <texture background="true">$INFO[ListItem.Icon]</texture>
-                                    <aspectratio>scale</aspectratio>
-                                    <visible>!IsEmpty(ListItem.Property(Path))</visible>
-                                </control>
-                                <control type="image">
-                                    <posx>24</posx>
-                                    <posy>24</posy>
-                                    <width>283</width>
-                                    <height>283</height>
-                                    <texture>windows/home/icons/addtile.png</texture>
-                                    <visible>IsEmpty(ListItem.Property(Path))</visible>
-                                </control>
-                                <control type="group">
-                                    <visible>!IsEmpty(ListItem.property(showlabel))</visible>
-                                    <control type="image">
-                                        <posx>24</posx>
-                                        <posy>241</posy>
-                                        <width>283</width>
-                                        <height>66</height>
-                                        <texture border="1">windows/home/tile-overlay.png</texture>
-                                        <colordiffuse>99FFFFFF</colordiffuse>
-                                    </control>
-                                    <control type="label">
-                                        <posx>24</posx>
-                                        <posy>241</posy>
-                                        <width>283</width>
-                                        <height>66</height>
-                                        <label>$INFO[ListItem.Label]</label>
-                                        <font>Font-Condensed-S33</font>
-                                        <textcolor>aawhite</textcolor>
-                                        <align>left</align>
-                                        <aligny>center</aligny>
-                                        <textoffsetx>20</textoffsetx>
-                                    </control>
-                                </control>
-                            </control>
-                        </itemlayout> -->
-						<!-- kraj ikona -->
-                        <focusedlayout width="289" height="289">
-                            <control type="group">
-                                <control type="image">
-                                    <posx>3</posx>
-                                    <posy>3</posy>
-                                    <width>325</width>
-                                    <height>325</height>
-                                    <texture border="40">special://skin/extras/home/tile-fo.png</texture>
-                                    <animation type="Focus">
-                                        <effect type="zoom" start="95" end="100" time="200" tween="sine" easing="inout" center="auto" />
-                                        <effect type="fade" start="0" end="100" time="200" tween="sine" easing="in" />
-                                    </animation>
-                                    <animation type="Unfocus">
-                                        <effect type="zoom" start="100" end="95" time="200" tween="sine" easing="inout" center="auto" />
-                                        <effect type="fade" start="100" end="0" time="200" tween="sine" easing="out" />
-                                    </animation>
-                                </control>
-                                <control type="group">
-                                    <animation type="Focus">
-                                        <effect type="fade" start="90" end="100" time="200" tween="sine" easing="in" />
-                                    </animation>
-                                    <animation type="Unfocus">
-                                        <effect type="fade" start="100" end="90" time="200" tween="sine" easing="out" />
-                                    </animation>
-                                    <control type="image">
-                                        <posx>19</posx>
-                                        <posy>19</posy>
-                                        <width>293</width>
-                                        <height>293</height>
-                                        <texture border="7">windows/home/tile.png</texture>
-                                    </control>
-                                    <control type="image">
-                                        <posx>24</posx>
-                                        <posy>24</posy>
-                                        <width>283</width>
-                                        <height>283</height>
-                                        <texture background="true">$INFO[ListItem.Icon]</texture>
-                                        <aspectratio>scale</aspectratio>
-                                        <visible>!IsEmpty(ListItem.Property(Path))</visible>
-                                        <animation type="Focus" condition="!IsEmpty(Container(203).ListItem.Property(animate))" reversible="false">
-                                            <effect type="zoom" end="115" time="75" tween="sine" easing="out" center="auto" />
-                                            <effect type="zoom" end="86.9565217" time="225" tween="sine" delay="100" easing="out" center="auto" />
-                                        </animation>
-                                    </control>
-                                    <control type="image">
-                                        <posx>24</posx>
-                                        <posy>24</posy>
-                                        <width>283</width>
-                                        <height>283</height>
-                                        <texture>windows/home/icons/addtile.png</texture>
-                                        <visible>IsEmpty(ListItem.Property(Path))</visible>
-                                        <animation type="Focus" reversible="false">
-                                            <effect type="zoom" end="115" time="75" tween="sine" easing="out" center="auto" />
-                                            <effect type="zoom" end="86.9565217" time="225" tween="sine" delay="100" easing="out" center="auto" />
-                                        </animation>
-                                    </control>
-                                    <control type="group">
-                                        <visible>!IsEmpty(ListItem.property(showlabel)) + !IsEmpty(ListItem.Property(Path))</visible>
-                                        <control type="image">
-                                            <posx>24</posx>
-                                            <posy>241</posy>
-                                            <width>283</width>
-                                            <height>66</height>
-                                            <texture border="1">windows/home/tile-overlay.png</texture>
-                                        <colordiffuse>99FFFFFF</colordiffuse>
-                                        </control>
-                                        <control type="label">
-                                            <posx>24</posx>
-                                            <posy>241</posy>
-                                            <width>283</width>
-                                            <height>66</height>
-                                            <label>$INFO[ListItem.Label]</label>
-                                            <font>Font-Condensed-S33</font>
-                                            <textcolor>aawhite</textcolor>
-                                            <align>left</align>
-                                            <aligny>center</aligny>
-                                            <textoffsetx>20</textoffsetx>
-                                        </control>
-                                    </control>
-                                </control>
-                            </control>
-                        </focusedlayout>
-						<!-- ikone 
-                        <itemlayout width="289" height="289">
-                            <control type="group">
-                                <animation effect="fade" end="90" time="0" condition="true">Conditional</animation>
-                                <control type="image">
-                                    <posx>19</posx>
-                                    <posy>19</posy>
-                                    <width>293</width>
-                                    <height>293</height>
-                                    <texture border="7">windows/home/tile.png</texture>
-                                </control>
-                                <control type="image">
-                                    <posx>24</posx>
-                                    <posy>24</posy>
-                                    <width>283</width>
-                                    <height>283</height>
-                                    <texture background="true">$INFO[ListItem.Icon]</texture>
-                                    <aspectratio>scale</aspectratio>
-                                    <visible>!IsEmpty(ListItem.Property(Path))</visible>
-                                </control>
-                                <control type="image">
-                                    <posx>24</posx>
-                                    <posy>24</posy>
-                                    <width>283</width>
-                                    <height>283</height>
-                                    <texture>windows/home/icons/addtile.png</texture>
-                                    <visible>IsEmpty(ListItem.Property(Path))</visible>
-                                </control>
-                                <control type="group">
-                                    <visible>!IsEmpty(ListItem.property(showlabel))</visible>
-                                    <control type="image">
-                                        <posx>24</posx>
-                                        <posy>241</posy>
-                                        <width>283</width>
-                                        <height>66</height>
-                                        <texture border="1">windows/home/tile-overlay.png</texture>
-                                        <colordiffuse>99FFFFFF</colordiffuse>
-                                    </control>
-                                    <control type="label">
-                                        <posx>24</posx>
-                                        <posy>241</posy>
-                                        <width>283</width>
-                                        <height>66</height>
-                                        <label>$INFO[ListItem.Label]</label>
-                                        <font>Font-Condensed-S33</font>
-                                        <textcolor>aawhite</textcolor>
-                                        <align>left</align>
-                                        <aligny>center</aligny>
-                                        <textoffsetx>20</textoffsetx>
-                                    </control>
-                                </control>
-                            </control>
-                        </itemlayout>						
-                        <focusedlayout width="289" height="289">
-                            <control type="group">
-                                <control type="image">
-                                    <posx>3</posx>
-                                    <posy>3</posy>
-                                    <width>325</width>
-                                    <height>325</height>
-                                    <texture border="40">special://skin/extras/home/tile-fo.png</texture>
-                                    <animation type="Focus">
-                                        <effect type="zoom" start="95" end="100" time="200" tween="sine" easing="inout" center="auto" />
-                                        <effect type="fade" start="0" end="100" time="200" tween="sine" easing="in" />
-                                    </animation>
-                                    <animation type="Unfocus">
-                                        <effect type="zoom" start="100" end="95" time="200" tween="sine" easing="inout" center="auto" />
-                                        <effect type="fade" start="100" end="0" time="200" tween="sine" easing="out" />
-                                    </animation>
-                                </control>
-                                <control type="group">
-                                    <animation type="Focus">
-                                        <effect type="fade" start="90" end="100" time="200" tween="sine" easing="in" />
-                                    </animation>
-                                    <animation type="Unfocus">
-                                        <effect type="fade" start="100" end="90" time="200" tween="sine" easing="out" />
-                                    </animation>
-                                    <control type="image">
-                                        <posx>19</posx>
-                                        <posy>19</posy>
-                                        <width>293</width>
-                                        <height>293</height>
-                                        <texture border="7">windows/home/tile.png</texture>
-                                    </control>
-								
-                                    <control type="image">
-                                        <posx>24</posx>
-                                        <posy>24</posy>
-                                        <width>283</width>
-                                        <height>283</height>
-									
-                                        <texture background="true">$INFO[ListItem.Icon]</texture>
-                                        <aspectratio>scale</aspectratio>
-										<visible>!IsEmpty(ListItem.Property(Path))</visible>
-										
-										<texture>windows/home/icons/addtile.png</texture>
-										<visible>IsEmpty(ListItem.Property(Path))</visible>
-                                        <animation type="Focus" condition="[!IsEmpty(Container(301).ListItem.Property(Path)) + !IsEmpty(Container(301).ListItem.Property(animate))] | IsEmpty(Container(301).ListItem.Property(Path))" reversible="false">
-                                            <effect type="zoom" end="115" time="75" tween="sine" easing="out" center="auto" />
-                                            <effect type="zoom" end="86.9565217" time="225" tween="sine" delay="100" easing="out" center="auto" />
-                                        </animation>
-                                    </control>
-                                    <control type="group">
-                                        <visible>[!IsEmpty(ListItem.property(showlabel)) + !IsEmpty(ListItem.Property(Path))] | IsEmpty(ListItem.Property(Path))</visible>
-                                        <control type="image">
-                                            <posx>24</posx>
-                                            <posy>241</posy>
-                                            <width>283</width>
-                                            <height>66</height>
-                                            <texture border="1">windows/home/tile-overlay.png</texture>
-                                            <colordiffuse>99FFFFFF</colordiffuse>
-                                        </control>
-										<control type="label">
-											<posx>24</posx>
-											<posy>241</posy>
-											<width>283</width>
-											<height>66</height>
-											<label>$INFO[ListItem.Label]</label>
-											<font>Font-Condensed-S33</font>
-											<textcolor>aawhite</textcolor>
-											<align>left</align>
-											<aligny>center</aligny>
-											<textoffsetx>20</textoffsetx>
-										</control>
-									
-                                        <control type="label">
-                                            <posx>24</posx>
-                                            <posy>241</posy>
-                                            <width>283</width>
-                                            <height>66</height>
-                                            <label>$INFO[ListItem.Label]</label>
-                                            <font>Font-Condensed-S33</font>
-                                            <textcolor>aawhite</textcolor>
-                                            <align>left</align>
-                                            <aligny>center</aligny>
-                                            <textoffsetx>20</textoffsetx>
-                                        </control>
-                                        <control type="label">
-                                            <posx>307</posx>
-                                            <posy>241</posy>
-                                            <width>283</width>
-                                            <height>66</height>
-                                            <label>$INFO[ListItem.Label2]</label>
-                                            <font>Font-Condensed-S31-B</font>
-                                            <textcolor>77white</textcolor>
-                                            <align>right</align>
-                                            <aligny>center</aligny>
-                                            <textoffsetx>20</textoffsetx>
-                                            <visible>!IsEmpty(ListItem.Label2) + IsEmpty(ListItem.Property(Path))</visible>
-                                        </control>
-										
-                                    </control>
-                                </control>
-                            </control>
-                        </focusedlayout>
-						kraj fokusa-->
-						
-						<!-- ### ikone lijeva strana ### 
                         <itemlayout width="289" height="289">
                             <control type="group">
                                 <animation effect="fade" end="90" time="0" condition="true">Conditional</animation>
@@ -1857,7 +1514,8 @@
                                     </control>
                                 </control>
                             </control>
-                        </itemlayout>  
+                        </itemlayout> 
+						
                         <focusedlayout width="289" height="289">
                             <control type="group">
                                 <control type="image">
@@ -1865,7 +1523,7 @@
                                     <posy>3</posy>
                                     <width>325</width>
                                     <height>325</height>
-                                    <texture border="40">special://skin/extras/home/tile-fo.png</texture>
+                                    <texture border="40">windows/home/tile-fo.png</texture>
                                     <animation type="Focus">
                                         <effect type="zoom" start="95" end="100" time="200" tween="sine" easing="inout" center="auto" />
                                         <effect type="fade" start="0" end="100" time="200" tween="sine" easing="in" />
@@ -1926,7 +1584,8 @@
                                     </control>
                                 </control>
                             </control>
-                        </focusedlayout> -->
+                        </focusedlayout>
+						
                         <content>
                             <item id="1">
                                 <label fallback="41450">$INFO[Skin.String(HomeHomeTile1.Label)]</label>
@@ -1954,6 +1613,7 @@
                                 <property name="path">$INFO[Skin.String(HomeHomeTile1.Path)]</property>
                                 <property name="animate">$INFO[Skin.String(HomeHomeTile1.Animate)]</property>
                             </item>
+							
                             <item id="2">
                                 <label fallback="41451">$INFO[Skin.String(HomeHomeTile2.Label)]</label>
                                 <onclick condition="IsEmpty(Window.Property(EditTile)) + Skin.HasSetting(HomeHomeTile2) + !stringcompare(Skin.String(HomeHomeTile2.Type),4) + !stringcompare(Skin.String(HomeHomeTile2.Type),5) + !stringcompare(Skin.String(HomeHomeTile2.Type),6) + !stringcompare(Skin.String(HomeHomeTile2.Type),7)">RunAddon($INFO[Skin.String(HomeHomeTile2.Path)])</onclick>
@@ -1982,12 +1642,14 @@
                             </item>
                         </content>
                     </control>
+					<!-- #-->
+					
                     <control type="image">
                         <posx>268</posx>
                         <posy>-21</posy>
                         <width>614</width>
                         <height>614</height>
-                        <texture border="40">special://skin/extras/home/tile-fo.png</texture>
+                        <texture border="40">windows/home/tile-fo.png</texture>
                         <animation type="Visible">
                             <effect type="fade" start="0" end="100" time="200" tween="sine" easing="in" />
                         </animation>
@@ -2001,7 +1663,7 @@
                         <posy>-21</posy>
                         <width>424</width>
                         <height>614</height>
-                        <texture border="40">special://skin/extras/home/tile-fo.png</texture>
+                        <texture border="40">windows/home/tile-fo.png</texture>
                         <animation type="Visible">
                             <effect type="fade" start="0" end="100" time="200" tween="sine" easing="in" />
                         </animation>
@@ -2012,13 +1674,12 @@
                     </control>
                 </control>
             </control>
-			<!--### Movies -->
+			<!-- ### Movies 200 #-->
             <control type="group" id="200">
                 <width>2320</width>
                 <height>780</height>
                 <description>Movies</description>
                 <visible>!Skin.HasSetting(HomeMovies)</visible>
-				<!--# Upper submenu for Movies ??? -->
                 <control type="button" id="225">
                     <onleft>CancelAlarm(HomeTileMove,true)</onleft>
                     <onleft>CancelAlarm(HomeTileMoveTwo,true)</onleft>
@@ -2043,7 +1704,6 @@
                     <onup>ActivateWindow(3020)</onup>
                     <ondown>201</ondown>
                 </control>
-				
                 <control type="group" id="250">
                     <posy>100</posy>
                     <posx>535</posx>
@@ -2075,29 +1735,14 @@
                         <effect type="fade" start="100" end="80" time="500" tween="cubic" easing="inout" />
                         <effect type="zoom" start="100" end="80" time="500" tween="cubic" easing="inout" center="1160,386" />
                     </animation>
-                    <!-- <control type="image">
+                    <control type="image">
                         <description>Bottom shadow</description>
                         <posx>-92</posx>
                         <posy>570</posy>
                         <width>1440</width>
                         <height>150</height>
                         <texture>windows/home/item-shadow.png</texture>
-                    </control> 
-					<!--# my extra label for movies 
-					<control type="label">			
-						<description>big label</description>
-						<posx>0</posx>
-						<posy>-60</posy>
-						<width>532</width>
-						<height>64</height>
-						<label>Movies</label>
-						<font>Font-Condensed-S60</font>
-						<textcolor>aawhite</textcolor>
-						<align>left</align>
-						<aligny>center</aligny>
-						<scroll>false</scroll>
-					</control> -->
-					<!-- Poster -->
+                    </control>
                     <control type="group" id="202">
                         <description>Recently added / watchlist items</description>
                         <posx>289</posx>
@@ -2214,7 +1859,7 @@
                             <width>342</width>
                             <height>64</height>
                             <label>$INFO[Container(2022).ListItem.Label]</label>
-                            <label2>$INFO[Container(2022).ListItem.Label2, ★ ,]</label2>
+                            <label2>$INFO[Container(2022).ListItem.Label2, * ,]</label2>
                             <font>Font-Condensed-S29-B</font>
                             <disabledcolor>aawhite</disabledcolor>
                             <align>left</align>
@@ -2273,7 +1918,6 @@
                             <animation effect="fade" time="300" start="95" end="0" tween="sine" easing="in">Hidden</animation>
                         </control>
                     </control>
-					
                     <control type="panel" id="201">
                         <posx>-24</posx>
                         <posy>-24</posy>
@@ -2282,8 +1926,7 @@
                         <onleft>CancelAlarm(HomeTileMove,true)</onleft>
                         <onleft>AlarmClock(HomeTileMoveTwo,Control.Move(5022,1),00:07,silent,loop)</onleft>
                         <onleft>Control.Move(20,-1)</onleft>
-                        <!--<onleft>503</onleft>-->
-						<onleft>502</onleft>
+                        <onleft>502</onleft>
                         <onright>202</onright>
                         <onup>225</onup>
                         <ondown>80</ondown>
@@ -2353,7 +1996,7 @@
                                     <posy>3</posy>
                                     <width>325</width>
                                     <height>325</height>
-                                    <texture border="40">special://skin/extras/home/tile-fo.png</texture>
+                                    <texture border="40">windows/home/tile-fo.png</texture>
                                     <animation type="Focus">
                                         <effect type="zoom" start="95" end="100" time="200" tween="sine" easing="inout" center="auto" />
                                         <effect type="fade" start="0" end="100" time="200" tween="sine" easing="in" />
@@ -2483,7 +2126,6 @@
                             </item>
                         </content>
                     </control>
-					
                     <control type="panel" id="203">
                         <posx>653</posx>
                         <posy>-24</posy>
@@ -2503,7 +2145,6 @@
                         <onback condition="!Skin.HasSetting(KioskMode)">SetProperty(EditTile,1)</onback>
                         <onback condition="!Skin.HasSetting(KioskMode)">Select</onback>
                         <scrolltime>0</scrolltime>
-						<!-- ikone -->
                         <itemlayout width="289" height="289">
                             <control type="group">
                                 <animation effect="fade" end="90" time="0" condition="true">Conditional</animation>
@@ -2555,8 +2196,7 @@
                                     </control>
                                 </control>
                             </control>
-                        </itemlayout> -->
-						<!-- kraj ikona -->
+                        </itemlayout>
                         <focusedlayout width="289" height="289">
                             <control type="group">
                                 <control type="image">
@@ -2564,7 +2204,7 @@
                                     <posy>3</posy>
                                     <width>325</width>
                                     <height>325</height>
-                                    <texture border="40">special://skin/extras/home/tile-fo.png</texture>
+                                    <texture border="40">windows/home/tile-fo.png</texture>
                                     <animation type="Focus">
                                         <effect type="zoom" start="95" end="100" time="200" tween="sine" easing="inout" center="auto" />
                                         <effect type="fade" start="0" end="100" time="200" tween="sine" easing="in" />
@@ -2739,7 +2379,7 @@
                         <posy>-21</posy>
                         <width>424</width>
                         <height>614</height>
-                        <texture border="40">special://skin/extras/home/tile-fo.png</texture>
+                        <texture border="40">windows/home/tile-fo.png</texture>
                         <animation type="Visible">
                             <effect type="fade" start="0" end="100" time="200" tween="sine" easing="in" />
                         </animation>
@@ -2750,7 +2390,7 @@
                     </control>
                 </control>
             </control>
-			<!--### TV shows -->
+			<!-- ### TV Shows 300 #-->
             <control type="group" id="300">
                 <width>2320</width>
                 <height>780</height>
@@ -2934,7 +2574,7 @@
                             <width>631</width>
                             <height>64</height>
                             <label>$INFO[Container(3022).ListItem.Label]</label>
-                            <label2>$INFO[Container(3022).ListItem.Label2, ★ ,]</label2>
+                            <label2>$INFO[Container(3022).ListItem.Label2, * ,]</label2>
                             <font>Font-Condensed-S29-B</font>
                             <disabledcolor>aawhite</disabledcolor>
                             <align>left</align>
@@ -3003,7 +2643,7 @@
                         <onleft condition="Skin.HasSetting(HomeMovies)">AlarmClock(HomeTileMoveTwo,Control.Move(5022,1),00:07,silent,loop)</onleft>
                         <onleft>Control.Move(20,-1)</onleft>
                         <onleft condition="!Skin.HasSetting(HomeMovies)">203</onleft>
-                        <onleft condition="Skin.HasSetting(HomeMovies)">503</onleft>
+                        <onleft condition="Skin.HasSetting(HomeMovies)">502</onleft>
                         <onright>302</onright>
                         <onup>325</onup>
                         <ondown>80</ondown>
@@ -3066,7 +2706,6 @@
                                 </control>
                             </control>
                         </itemlayout>
-						<!-- fokua -->
                         <focusedlayout width="289" height="289">
                             <control type="group">
                                 <control type="image">
@@ -3074,7 +2713,7 @@
                                     <posy>3</posy>
                                     <width>325</width>
                                     <height>325</height>
-                                    <texture border="40">special://skin/extras/home/tile-fo.png</texture>
+                                    <texture border="40">windows/home/tile-fo.png</texture>
                                     <animation type="Focus">
                                         <effect type="zoom" start="95" end="100" time="200" tween="sine" easing="inout" center="auto" />
                                         <effect type="fade" start="0" end="100" time="200" tween="sine" easing="in" />
@@ -3149,7 +2788,6 @@
                                 </control>
                             </control>
                         </focusedlayout>
-						<!-- kraj fokusa-->
                         <content>
                             <item id="1">
                                 <label fallback="20343">$INFO[Skin.String(HomeTVShowTile3.Label)]</label>
@@ -3282,7 +2920,7 @@
                                     <posy>3</posy>
                                     <width>325</width>
                                     <height>325</height>
-                                    <texture border="40">special://skin/extras/home/tile-fo.png</texture>
+                                    <texture border="40">windows/home/tile-fo.png</texture>
                                     <animation type="Focus">
                                         <effect type="zoom" start="95" end="100" time="200" tween="sine" easing="inout" center="auto" />
                                         <effect type="fade" start="0" end="100" time="200" tween="sine" easing="in" />
@@ -3409,7 +3047,7 @@
                         <posy>-21</posy>
                         <width>713</width>
                         <height>614</height>
-                        <texture border="40">special://skin/extras/home/tile-fo.png</texture>
+                        <texture border="40">windows/home/tile-fo.png</texture>
                         <animation type="Visible">
                             <effect type="fade" start="0" end="100" time="200" tween="sine" easing="in" />
                         </animation>
@@ -3420,7 +3058,7 @@
                     </control>
                 </control>
             </control>
-			<!--### Music -->
+			<!-- ### Music 400 #-->
             <control type="group" id="400">
                 <width>2320</width>
                 <height>780</height>
@@ -3735,7 +3373,7 @@
                                     <posy>3</posy>
                                     <width>325</width>
                                     <height>325</height>
-                                    <texture border="40">special://skin/extras/home/tile-fo.png</texture>
+                                    <texture border="40">windows/home/tile-fo.png</texture>
                                     <animation type="Focus">
                                         <effect type="zoom" start="95" end="100" time="200" tween="sine" easing="inout" center="auto" />
                                         <effect type="fade" start="0" end="100" time="200" tween="sine" easing="in" />
@@ -3942,7 +3580,7 @@
                                     <posy>3</posy>
                                     <width>325</width>
                                     <height>325</height>
-                                    <texture border="40">special://skin/extras/home/tile-fo.png</texture>
+                                    <texture border="40">windows/home/tile-fo.png</texture>
                                     <animation type="Focus">
                                         <effect type="zoom" start="95" end="100" time="200" tween="sine" easing="inout" center="auto" />
                                         <effect type="fade" start="0" end="100" time="200" tween="sine" easing="in" />
@@ -4075,7 +3713,7 @@
                         <posy>-21</posy>
                         <width>614</width>
                         <height>614</height>
-                        <texture border="40">special://skin/extras/home/tile-fo.png</texture>
+                        <texture border="40">windows/home/tile-fo.png</texture>
                         <animation type="Visible">
                             <effect type="fade" start="0" end="100" time="200" tween="sine" easing="in" />
                         </animation>
@@ -4086,7 +3724,7 @@
                     </control>
                 </control>
             </control>
-			<!--### Apps -->
+			<!-- ### Apps 600 #-->
             <control type="group" id="600">
                 <width>2320</width>
                 <height>780</height>
@@ -4171,7 +3809,7 @@
                         <onleft condition="!Skin.HasSetting(HomeMusic)">403</onleft>
                         <onleft condition="Skin.HasSetting(HomeMusic) + !Skin.HasSetting(HomeTVShows)">303</onleft>
                         <onleft condition="Skin.HasSetting(HomeMusic) + Skin.HasSetting(HomeTVShows) + !Skin.HasSetting(HomeMovies)">203</onleft>
-                        <onleft condition="Skin.HasSetting(HomeMusic) + Skin.HasSetting(HomeTVShows) + Skin.HasSetting(HomeMovies)">503</onleft>
+                        <onleft condition="Skin.HasSetting(HomeMusic) + Skin.HasSetting(HomeTVShows) + Skin.HasSetting(HomeMovies)">502</onleft>
                         <onright>CancelAlarm(HomeTileMove,true)</onright>
                         <onright>Control.Move(20,1)</onright>
                         <onright>701</onright>
@@ -4238,7 +3876,7 @@
                                     <posy>3</posy>
                                     <width>325</width>
                                     <height>325</height>
-                                    <texture border="40">special://skin/extras/home/tile-fo.png</texture>
+                                    <texture border="40">windows/home/tile-fo.png</texture>
                                     <animation type="Focus">
                                         <effect type="zoom" start="95" end="100" time="200" tween="sine" easing="inout" center="auto" />
                                         <effect type="fade" start="0" end="100" time="200" tween="sine" easing="in" />
@@ -4508,7 +4146,7 @@
                     </control>
                 </control>
             </control>
-			<!--### Weather -->
+			<!-- ### Weather 700 #-->
             <control type="group" id="700">
                 <width>2320</width>
                 <height>780</height>
@@ -4528,13 +4166,14 @@
                     <onleft condition="Skin.HasSetting(HomePrograms) + Skin.HasSetting(HomeMusic) + !Skin.HasSetting(HomeTVShows)">325</onleft>
                     <onleft condition="Skin.HasSetting(HomePrograms) + Skin.HasSetting(HomeMusic) + Skin.HasSetting(HomeTVShows) + !Skin.HasSetting(HomeMovies)">225</onleft>
                     <onleft condition="Skin.HasSetting(HomePrograms) + Skin.HasSetting(HomeMusic) + Skin.HasSetting(HomeTVShows) + Skin.HasSetting(HomeMovies)">525</onleft>
-                    <!-- move right to setting do not need them any more
-					<onright>CancelAlarm(HomeTileMove,true)</onright>
+					<!--
+                    <onright>CancelAlarm(HomeTileMove,true)</onright>
                     <onright>CancelAlarm(HomeTileMoveTwo,true)</onright>
                     <onright>CancelAlarm(HomeTileMoveThree,true)</onright>
                     <onright>Control.Move(20,1)</onright>
-                    <onright>825</onright> -->
-					<onright condition="!Window.IsVisible(3009)">SetProperty(BounceRight,1,Home)</onright>
+                    <onright>825</onright>
+					-->
+                    <onright condition="!Window.IsVisible(3009)">SetProperty(BounceRight,1,Home)</onright>
                     <onclick condition="!IsEmpty(Weather.Plugin)">ActivateWindow(weather)</onclick>
                     <onclick condition="IsEmpty(Weather.Plugin)">ActivateWindow(weathersettings)</onclick>
                     <onup>80</onup>
@@ -5214,10 +4853,10 @@
                         <onleft condition="Skin.HasSetting(HomePrograms) + !Skin.HasSetting(HomeMusic)">403</onleft>
                         <onleft condition="Skin.HasSetting(HomePrograms) + Skin.HasSetting(HomeMusic) + !Skin.HasSetting(HomeTVShows)">303</onleft>
                         <onleft condition="Skin.HasSetting(HomePrograms) + Skin.HasSetting(HomeMusic) + Skin.HasSetting(HomeTVShows) + !Skin.HasSetting(HomeMovies)">203</onleft>
-                        <onleft condition="Skin.HasSetting(HomePrograms) + Skin.HasSetting(HomeMusic) + Skin.HasSetting(HomeTVShows) + Skin.HasSetting(HomeMovies)">503</onleft>
-                        <!--<onright>Control.Move(20,1)</onright>
-                        <onright>801</onright>-->
+                        <onleft condition="Skin.HasSetting(HomePrograms) + Skin.HasSetting(HomeMusic) + Skin.HasSetting(HomeTVShows) + Skin.HasSetting(HomeMovies)">502</onleft>
 						<onright condition="!Window.IsVisible(3009)">SetProperty(BounceRight,1,Home)</onright>
+                        <!--<onright>Control.Move(20,1)</onright>
+						<onright>801</onright>-->
                         <onup>725</onup>
                         <ondown>80</ondown>
                         <scrolltime>0</scrolltime>
@@ -5267,7 +4906,7 @@
                                     <posy>3</posy>
                                     <width>325</width>
                                     <height>325</height>
-                                    <texture border="40">special://skin/extras/home/tile-fo.png</texture>
+                                    <texture border="40">windows/home/tile-fo.png</texture>
                                     <animation type="Focus">
                                         <effect type="zoom" start="95" end="100" time="200" tween="sine" easing="inout" center="auto" />
                                         <effect type="fade" start="0" end="100" time="200" tween="sine" easing="in" />
@@ -5341,8 +4980,8 @@
                     </control>
                 </control>
             </control>
-			<!--### Settings -->
-			<!-- we access setting other way so it is redundand
+			<!-- ### Settings 800 #-->
+			<!--
             <control type="group" id="800">
                 <width>2320</width>
                 <height>780</height>
@@ -5443,7 +5082,7 @@
                                     <posy>3</posy>
                                     <width>288</width>
                                     <height>325</height>
-                                    <texture border="40">special://skin/extras/home/tile-fo.png</texture>
+                                    <texture border="40">windows/home/tile-fo.png</texture>
                                     <animation type="Focus">
                                         <effect type="zoom" start="95" end="100" time="200" tween="sine" easing="inout" center="auto" />
                                         <effect type="fade" start="0" end="100" time="200" tween="sine" easing="in" />

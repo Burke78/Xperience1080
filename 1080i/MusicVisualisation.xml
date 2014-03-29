@@ -199,7 +199,7 @@
                                 <width>1320</width>
                                 <height>56</height>
                                 <label>$INFO[MusicPlayer.PlaylistPosition,,. ]$INFO[MusicPlayer.Title]</label>
-                                <label2>$INFO[MusicPlayer.Rating,★ ,.0]</label2>
+                                <label2>$INFO[MusicPlayer.Rating,* ,.0]</label2>
                                 <disabledcolor>bbwhite</disabledcolor>
                                 <font>Font-Condensed-S50-B</font>
                                 <align>left</align>
