@@ -370,7 +370,6 @@
                         <onfocus condition="!IsEmpty(Window(Home).Property(ReloadSkin))">ClearProperty(ReloadSkin,Home)</onfocus>
                         <label>$LOCALIZE[41131]</label>
                     </control>
-					<!--
                     <control type="button" id="2001">
                         <width>1210</width>
                         <texturefocus border="150,3,150,3">windows/settings/images/right-focus-arrow-fo.png</texturefocus>
@@ -380,6 +379,7 @@
                         <onclick>ActivateWindow(3003)</onclick>
                         <label>$LOCALIZE[41136]</label>
                     </control>
+					<!-- control for widgets no need for it 
                     <control type="button" id="2002">
                         <width>1210</width>
                         <texturefocus border="150,3,150,3">windows/settings/images/right-focus-arrow-fo.png</texturefocus>
